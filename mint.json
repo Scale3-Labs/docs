@@ -1,0 +1,61 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Scale3Labs",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#BE63FF",
+    "light": "#D9A4FF",
+    "dark": "#886bfe",
+    "anchors": { "from": "#886BFE", "to": "#BE63FF" }
+  },
+  "topbarLinks": [
+    {
+      "name": "Log In",
+      "url": "https://auth.scale3labs.com/u/login?state=hKFo2SBJeDdUSzVxeUdTSkVUd2dIQnpNalFlWkRxNXZkRmZTcaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFdaN1hKazRSczVwSEpzM3QwVXhhY2FnU2N2VDB0d2xno2NpZNkgNXA1c1lSd2ZKdDU2aXliWVNXS2lTM1RPbjQyR2p0STc"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Sign Up",
+    "url": "https://auth.scale3labs.com/u/signup?state=hKFo2SA1Vk02MnBJWWF1UUhoVHRVWjhGOHRTSmljN0Y2S1JZUKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEtncmN3dXFRX0VJSkFCRVlCaHlBY0pHaExSTUxva0VJo2NpZNkgNXA1c1lSd2ZKdDU2aXliWVNXS2lTM1RPbjQyR2p0STc"
+  },
+  "anchors": [
+    {
+      "name": "Blog",
+      "icon": "medium",
+      "url": "https://medium.com/scale3-labs"
+    },
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.com/invite/h74CkNv4h9"
+    },
+    {
+      "name": "Contact Us",
+      "icon": "envelope",
+      "url": "mailto:contact@scale3labs.com"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Node Checker",
+      "pages": ["introduction", "nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
+    },
+    {
+      "group": "Integrations",
+      "pages": ["integrations/firehydrant", "integrations/slack", "integrations/pagerduty"]
+    },
+    {
+      "group": "Node Monitoring",
+      "pages": ["node-monitoring/introduction", "node-monitoring/push-method", "node-monitoring/pull-method"]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/Scale3Labs",
+    "discord": "https://discord.com/invite/h74CkNv4h9",
+    "website": "https://www.scale3labs.com/"
+  }
+}
