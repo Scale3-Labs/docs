@@ -15,12 +15,12 @@
   "topbarLinks": [
     {
       "name": "Log In",
-      "url": "https://auth.scale3labs.com/u/login?state=hKFo2SBJeDdUSzVxeUdTSkVUd2dIQnpNalFlWkRxNXZkRmZTcaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFdaN1hKazRSczVwSEpzM3QwVXhhY2FnU2N2VDB0d2xno2NpZNkgNXA1c1lSd2ZKdDU2aXliWVNXS2lTM1RPbjQyR2p0STc"
+      "url": "https://www.scale3labs.com/signin"
     }
   ],
   "topbarCtaButton": {
     "name": "Sign Up",
-    "url": "https://auth.scale3labs.com/u/signup?state=hKFo2SA1Vk02MnBJWWF1UUhoVHRVWjhGOHRTSmljN0Y2S1JZUKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEtncmN3dXFRX0VJSkFCRVlCaHlBY0pHaExSTUxva0VJo2NpZNkgNXA1c1lSd2ZKdDU2aXliWVNXS2lTM1RPbjQyR2p0STc"
+    "url": "https://www.scale3labs.com/signup"
   },
   "anchors": [
     {
@@ -41,8 +41,12 @@
   ],
   "navigation": [
     {
+      "group": "Home",
+      "pages": ["introduction"]
+    },
+    {
       "group": "Node Checker",
-      "pages": ["introduction", "nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
+      "pages": ["nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
     },
     {
       "group": "Integrations",
@@ -51,6 +55,10 @@
     {
       "group": "Node Monitoring",
       "pages": ["node-monitoring/introduction", "node-monitoring/push-method", "node-monitoring/pull-method"]
+    },
+    {
+      "group": "SUI Node Helper",
+      "pages": ["sui-node-helper/introduction","sui-node-helper/running-a-sui-fullnode","sui-node-helper/running-a-sui-validator","sui-node-helper/sui-node-helper-faqs"]
     }
   ],
   "footerSocials": {
