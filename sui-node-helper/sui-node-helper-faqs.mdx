@@ -1,0 +1,130 @@
+---
+title: FAQs
+description: "Collection of common questions around SUI Node Helper"
+---
+
+<AccordionGroup>
+
+<Accordion title="SUI Helper fails at download binary stage">
+  ![Node Checker Results](/images/sui-node-checker-download-binary-failed.png)
+
+The download binary can be due to various reasons:
+
+1. Server does not have access to internet. You can try accessing any public endpoint using `curl` or
+   `ping` command like `bash ping 8.8.8.8 `
+2. The linux user does not have access to selected download path, so make sure the path inserted at Download Binary page is valid and accessible by your user.
+3. Scale3Lab's binary repo
+   does not have required release version for SUI. We generally build many
+   versions, but it's possible that each individual have their custom
+   requirements. If this is the case, you may just proceed with any common
+   release tag and continue with the flow and later just before starting the
+   linux service abort the tool and manually replace your desired sui-node binary
+   with the one which was downloaded.
+
+</Accordion>
+
+<Accordion title='How to start/restart sui-node?'>
+    Assuming you have setup your SUI fullnode or validator using SUI Helper.
+
+    To **start** a sui-node process run the following command
+    ```bash
+    sudo service sui-node start
+    ```
+
+    To **restart** sui-node process run
+    ```bash
+    sudo service sui-node restart
+    ```
+
+</Accordion>
+
+<Accordion title='How to check if my SUI node is syncing?'>
+    You can check if your node is syncing blocks in any of the following ways.
+
+    1. Using SUI Node Checker
+        Use this tool https://www.scale3labs.com/check/sui. Run the check atleast twice with an interval of minimum 10 seconds and observe your node block height, it should increase.
+
+    2. Run this command on your SUI node server
+        ```bash
+        curl --location --request POST http://localhost:9000 \
+        --header 'Content-Type: application/json' \
+        --data-raw '{ "jsonrpc":"2.0", "method":"sui_getTotalTransactionBlocks","id":1}'
+        ```
+        Output should be something like:
+        ```json
+        {"jsonrpc":"2.0","result":"23446624","id":1}
+        ```
+        Run this command multiple times, if your node is syncing fine you should notice number in `result` block going up.
+
+    3. Onboard your node on Scale3Labs Autopilot
+        To observe syncing trend on your node, the best way to do is by onboarding your node on https://www.scale3labs.com/#autopilot.
+
+</Accordion>
+
+<Accordion title='My SUI node is not syncing, what should I do?'>
+    If you have just setup a new node and its not syncing, this could mostly be due to your node unable to find peers. Follow the steps to add peers to your SUI node config file.
+    - cd into directory where you have `fullnode.yaml` or `validator.yaml` file (If you do not know where the file is, check the FAQ for how to find config file). For most of the scenarios it's by running
+        ```bash
+        cd ~/sui/
+        ```
+    - add peers to the list. This list is taken from [here](https://github.com/testnet-pride/Node-manuals/blob/main/Testnets/Sui/guidePT.md#if-your-node-is-not-syncing-try-adding-peers-into-p2p-config).
+    <Warning>
+        This peer list is only for testnet
+    </Warning>
+
+        ```bash
+        sudo tee -a fullnode.yaml << END
+
+        p2p-config:
+            seed-peers:
+            - address: "/dns/sui-rpc-pt.testnet-pride.com/udp/8084"
+                peer-id: 0b10182585ae4a305721b1823ea5a9c3ce7d6ac4b4a8ce35fe96d9914c8fcb73
+            - address: "/dns/sui-rpc-pt2.testnet-pride.com/udp/8084"
+                peer-id: bf45f2bd2bbc4c2d53d10c05c96085d4ef18688af04649d6e65e1ebad1716804
+            - address: "/dns/sui-testnet-rpc.bartestnet.com/udp/8084"
+                peer-id:f99db6031fa17876ee7d8f4dd5d3eafbdbe6b6012dc2b6b01bd604b4e45d3b86
+            - address: "/ip4/38.242.197.20/udp/8080"
+            - address: "/ip4/178.18.250.62/udp/8080"
+            - address: "/ip4/162.55.84.47/udp/8084"
+            - address: "/dns/wave-3.testnet.n1stake.com/udp/8084"
+        END
+        ```
+    - Once added, restart the sui-node process by running
+        ```bash
+        sudo service sui-node restart
+        ```
+
+</Accordion>
+
+<Accordion title='How to check SUI version?'>
+    1. Check SUI version by running binary. First `cd` to the path where you have your sui-node binary
+        ```bash
+            ./sui-node --version
+        ```
+    2. By making the following API call. this requires `jq` to be installed.
+        <Info>
+            If you have a different custom setup, make sure to change **localhost** and **port** to your desired values.
+        </Info>
+        ```bash
+            curl --location --request POST http://localhost:9000 \
+                --header 'Content-Type: application/json' \
+                --data-raw '{ "jsonrpc":"2.0", "method":"rpc.discover","id":1}' | jq '.result.info.version'
+        ```
+    3. If you have already onboarded your node on [Scale3 Autopilot](https://www.scale3labs.com/#autopilot), you can check it on metrics dashboard.
+        ![SUI Version Demo](/images/sui-version-demo.png)
+</Accordion>
+
+<Accordion title='Where is my Node config file?'>
+    Config file for fullnode is `fullnode.yaml` whereas for validators its `validator.yaml`.
+    
+    Generally, they are located at
+    ```bash
+        cd ~/sui/
+    ```
+    But if you have used different folder path during the setup and you don't recall it now, you can find the config file by checking the `sui-node` linux service.
+    ```bash
+        cat /etc/systemd/system/sui-node.service | grep 'ExecStart'
+    ```
+    The output of above command will have `--config-path` value, that's the file path of your config file.
+</Accordion>
+</AccordionGroup>
