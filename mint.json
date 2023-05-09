@@ -77,6 +77,12 @@
       ]
     },
     {
+      "group": "Node Inventory Management",
+      "pages": [
+        "node-inventory/introduction"
+      ]
+    },
+    {
       "group": "Node Checker",
       "pages": ["nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
     }
