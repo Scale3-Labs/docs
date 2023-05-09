@@ -5,7 +5,7 @@ description: 'Welcome to the Scale3 Documentation. Here you will find all the in
 
 Whether you have a validator node or a full node, Scale3 provides you with a set of tools to help you manage your node and keep it healthy.
 * If you already have a node, you can jump straight to the [Setup Alerts](#setup-alerts-for-your-validator-node) section.
-* If you wish to setup a new node, you can follow the [Node Setup](#setup-a-new-node) section to first get a node up and running. Then you can start with the [Setup Alerts](#setup-alerts-for-your-validator-node) section to setup alerts followed by the [Setup Monitoring](#setup-a-monitoring-dashboard-for-your-validator-node) section to setup a monitoring dashboard. 
+* If you wish to setup a new node, you can follow the [Node Setup](#setup-and-run-a-validator-or-full-node) section to first get a node up and running. Then you can start with the [Setup Alerts](#setup-alerts-for-your-validator-node) section to setup alerts followed by the [Setup Monitoring](#setup-a-monitoring-dashboard-for-your-validator-node) section to setup a monitoring dashboard. 
 > **Note**: Scale3 does not provide node hosting infrastructure. We have built an open source tool to help you set up a validator or a full node.
 
 ## Setup Alerts for your validator node
@@ -59,5 +59,30 @@ Currently, we provide two methods to link your validator node to our platform.
     href="https://scale3labs.com/docs/node-monitoring/pull-method"
   >
     Requires the RPC & Prometheus ports exposed. Includes only node metrics.
+  </Card>
+</CardGroup>
+
+## Setup and run a validator or full node
+
+> **Note**: We currently support this only for the SUI blockchain. We will be adding support for other blockchains soon.
+
+Setup a SUI validator/full node using our [open source tool](https://github.com/Scale3-Labs/sui-node-helper) - Sui Node Wizard.
+
+![SUI Node Wizard](/images/sui-node-wizard.png)
+
+<CardGroup cols={2}>
+  <Card
+    title="SUI Fullnode"
+    icon="gear-code"
+    href="https://scale3labs.com/docs/node-setup/running-a-sui-fullnode"
+  >
+    Setup a SUI Fullnode and use it for developing applications on the SUI blockchain.
+  </Card>
+    <Card
+    title="SUI Validator"
+    icon="sack-dollar"
+    href="https://scale3labs.com/docs/node-setup/running-a-sui-validator"
+  >
+    Selected to run a SUI Validator? Follow the best practices to set it up efficiently.
   </Card>
 </CardGroup>
