@@ -45,20 +45,40 @@
       "pages": ["introduction"]
     },
     {
+      "group": "Alerting",
+      "pages": [
+        "alerting/introduction",
+        "alerting/node-health",
+        "alerting/validator-metrics",
+        "alerting/network-intelligence"
+      ]
+    },
+    {
+      "group": "Alert Channels",
+      "pages": [
+        "channels/introduction",
+        "channels/email",
+        "channels/slack",
+        "channels/pagerduty",
+        "channels/firehydrant"
+      ]
+    },
+    {
+      "group": "Monitoring",
+      "pages": ["monitoring/introduction", "monitoring/push-method", "monitoring/pull-method"]
+    },
+    {
+      "group": "Validator/Fullnode Setup",
+      "pages": [
+        "node-setup/introduction",
+        "node-setup/running-a-sui-fullnode",
+        "node-setup/running-a-sui-validator",
+        "node-setup/sui-node-helper-faqs"
+      ]
+    },
+    {
       "group": "Node Checker",
       "pages": ["nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
-    },
-    {
-      "group": "Integrations",
-      "pages": ["integrations/firehydrant", "integrations/slack", "integrations/pagerduty"]
-    },
-    {
-      "group": "Node Monitoring",
-      "pages": ["node-monitoring/introduction", "node-monitoring/push-method", "node-monitoring/pull-method"]
-    },
-    {
-      "group": "SUI Node Helper",
-      "pages": ["sui-node-helper/introduction","sui-node-helper/running-a-sui-fullnode","sui-node-helper/running-a-sui-validator","sui-node-helper/sui-node-helper-faqs"]
     }
   ],
   "footerSocials": {
