@@ -83,6 +83,10 @@
       ]
     },
     {
+      "group": "API Integration",
+      "pages": ["api-integration/introduction"]
+    },
+    {
       "group": "Node Checker",
       "pages": ["nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
     }
