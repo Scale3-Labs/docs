@@ -84,7 +84,11 @@
     },
     {
       "group": "API Integration",
-      "pages": ["api-integration/introduction"]
+      "pages": ["api-integration/introduction", "api-integration/reference"]
+    },
+    {
+      "group": "Command Line Interface",
+      "pages": ["command-line-interface/introduction"]
     },
     {
       "group": "Node Checker",
