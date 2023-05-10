@@ -1,6 +1,6 @@
 # Scale3 Documentation
 
-The content and configuration powering the documentation available at [docs.scale3labs.com](https://docs.scale3labs.com)
+The content and configuration powering the documentation available at [https://scale3labs.com/docs/introduction](https://scale3labs.com/docs/introduction)
 
 ### 👩‍💻 Development
 
