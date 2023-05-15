@@ -1,1 +1,33 @@
-<Info>🚧 Content under construction.</Info>
+---
+title: Node Inventory
+description: Steps to inventory nodes on the Scale3 Labs platform
+---
+
+Instructions:
+1. Navigate to **Node Inventory** by selecting the **Inventory** tab on the side panel of the Scale3 Labs platform.
+
+![Node Inventory side panel](/images/node_inventory_side_panel.png)
+
+2. If you do not have the Scale3CLI installed on any of your nodes, please follow the step 2.a-2g. Otherwise, skip to step 3.
+2.a. If you do not already have the Scale3CLI installed on your node you should see the following:
+
+![Node Inventory no nodes](/images/node_no_nodes.png)
+
+2.b Click **Get Started** to install the Scale3CLI on your node.
+
+2.c. First, open a terminal shell on your node and download the Scale3 CLI by running the following
+`curl -L -G --fail "https://web-backend.scale3infrastructure.com/cli/binary" | tar -xz`
+
+2.d. Make the install script executable by copying and pasting the following command in your terminal:
+`chmod a+x installcli.sh`
+
+2.e. If you don't already have a Scale3 API Key, click + Create API Key to generate a new key. Be sure to save your key!
+
+2.f. Run the following command in your terminal then skip to step 4:
+`./installcli.sh -ik <API-key-from-previous-step>`
+
+3.a. If you already have the Scale3 CLI installed on your node, simply run the following command on your node:
+`scale3cli inventory add`
+
+4. If you see the following you have successfully inventoried your first node!
+
