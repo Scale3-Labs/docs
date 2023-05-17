@@ -1,38 +1,32 @@
 ---
 title: Introduction
-description: "Welcome to the SUI NodeHelper Documentation"
+description: "Blockchain Node Setup and Operations"
 ---
 
-<Frame>
-  <img src="/images/sui-node-helper-welcome.png" />
-</Frame>
-
-GitHub Repo: [sui-node-helper](https://github.com/Scale3-Labs/sui-node-helper)
-
-Blog: [Sui Wizard — Node Management Simplified](https://medium.com/@scale3/sui-wizard-node-management-simplified-b6a7395745e5)
-
-<CardGroup cols={2}>
+<CardGroup cols={3}>
   <Card
-    title="Setup Full Node"
+    title="Setup Sui on Contabo"
+    icon="server"
+    iconType="regular"
+    href="/node-setup/run-sui-fullnode-manually"
+  >
+    Guide to run Sui node on a server in Contabo.
+  </Card>
+  <Card
+    title="Sui Fullnode"
     icon="gear"
     iconType="regular"
-    href="/sui-node-helper/running-a-sui-fullnode"
+    href="/node-setup/sui-wizard/running-a-sui-fullnode"
   >
-    Steps to setup a SUI fullnode on devnet/testnet.
+    Setup a Sui Fullnode and use it for developing applications on the Sui
+    blockchain.
   </Card>
   <Card
-    title="Setup Validator"
-    icon="gears"
-    href="/sui-node-helper/running-a-sui-validator"
+    title="Sui Validator"
+    icon="sack-dollar"
+    href="/node-setup/sui-wizard/running-a-sui-validator"
   >
-    Steps to setup a SUI Validator on testnet.
-  </Card>
-  <Card
-    title="FAQs"
-    icon="question"
-    iconType="solid"
-    href="/sui-node-helper/sui-node-helper-faqs"
-  >
-    Need some help?
+    Selected to run a Sui Validator? Follow the best practices to set it up
+    efficiently.
   </Card>
 </CardGroup>

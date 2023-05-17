@@ -1,0 +1,110 @@
+---
+title: Running A Sui FullNode
+description: "Steps to setup a Sui fullnode on devnet/testnet"
+---
+
+[Sui Wizard](https://github.com/Scale3-Labs/sui-node-helper) makes life easy for setting up a fullnode for `mainnet`, `testnet` or `devnet`.
+
+You can follow the doc or check out the medium [blog](https://medium.com/@scale3/sui-wizard-node-management-simplified-b6a7395745e5).
+
+## System Requirements
+
+As per the [Sui documentation](https://docs.sui.io/build/fullnode#hardware-requirements), the recommended minimum hardware requirements are as follows:
+
+- CPUs: 8 physical cores / 16 vCPUs
+- RAM: 128 GB
+- Storage (SSD): 2 TB NVMe drive
+
+## Steps to Setup a Fullnode
+
+<Tip>
+  In this walkthough we are going to setup a fullnode for `Mainnet`, but the
+  steps remain same for other Sui networks.
+</Tip>
+
+### Step 1: Connect to the Server
+
+To connect to your server, use SSH or RDP to access the server terminal, allowing you to run commands directly.
+
+### Step 2: Download and Run Sui Wizard
+
+- Download the script
+
+  ```bash
+  curl --fail --location --output helper.sh https://raw.githubusercontent.com/Scale3-Labs/sui-node-helper/master/helper.sh
+  ```
+
+- Give executable permissions
+
+  ```bash
+  chmod +x helper.sh
+  ```
+
+- Run the script
+
+  <Note>
+    _If the script prompts to install dependencies, type 'y' to install them._
+  </Note>
+
+  ```bash
+  ./helper.sh
+  ```
+
+### Step 3: Configure the server for running Sui Mainnet Fullnode
+
+- Once you are on the welcome screen, follow the screenshots below for the steps.
+  Press `Yes`
+  ![Sui Wizard Welcome](/node-setup/sui-wizard/assets/sui-wizard-welcome.png)
+
+- Read the instructions and press `Yes` to continue.
+  ![Sui Wizard Navigation Instructions](/node-setup/sui-wizard/assets/sui-wizard-navigation-instructions.png)
+
+- Since we are setting up a Fullnode, we will select the **RPC Full Node** option.
+  ![Sui Wizard Node Type Choice](/node-setup/sui-wizard/assets/sui-wizard-node-type-choice.png)
+
+- Select **Setup Fullnode From Scratch**
+  ![Sui Wizard Node Operations](/node-setup/sui-wizard/assets/sui-wizard-node-operations.png)
+
+- For the next screen, you are asked to choose Sui network, we will choose **Mainnet**.
+  ![Sui Wizard Network Choice](/node-setup/sui-wizard/assets/sui-wizard-network-choice.png)
+
+- On the next page there are two fields, you can keep it default.
+
+1.  Release Version or hash
+
+    This is the `sui-node` version that has to be installed. The values can be either:
+
+    - **Github release**: sui-v1.0.0, testnet-1.0.0
+    - **Branch**: mainnet, testnet, or devnet
+    - **Commit Hash**: ae1212baf8f0837e25926d941db3d26a61c1bea2, c525ba6489261ff6db65e87bf9a3fdda0a6c7be3
+
+    > Avoid using commit hash as much as possible, using **Github Release is the easiest and recommended option**.
+
+2.  Absolute folder for configs
+
+    Path to the folder where you want to store all your Sui node configs. Configs include `fullnode.yaml`, binaries, etc.
+
+    <Tip>Make sure to remember this path for updating your node in future.</Tip>
+
+    ![Sui Wizard Release Input Window](/node-setup/sui-wizard/assets/sui-wizard-release-input-window.png)
+
+    After pressing `OK` or hitting enter/return, the download of the Sui binary will start, and once it's successfully downloaded, the binary version will be displayed.
+
+    Press OK to proceed to setup "systemd" service.
+
+- You will now be asked to enter a path for storing data. If you're unsure about the appropriate value, it's recommended to keep the default setting.
+
+  <Tip>
+    _The folder path should be directed to a disk with ample free space for
+    storing the Sui Blockchain data._
+  </Tip>
+
+  ![Sui Wizard Data Folder Input](/node-setup/sui-wizard/assets/sui-wizard-data-folder-input.png)
+
+- The last step is to start the Sui fullnode process, press `Yes` if you wish to start or `No` if you want to make some changes and manually start.
+  ![Sui Wizard Restart Sui](/node-setup/sui-wizard/assets/sui-wizard-restart-sui.png)
+
+- Once you start/restart your sui-node service, you can check the logs by running the following command:
+  ```bash
+  journalctl -fu sui-node
+  ```

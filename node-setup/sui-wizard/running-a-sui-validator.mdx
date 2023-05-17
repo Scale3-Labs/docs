@@ -1,0 +1,152 @@
+---
+title: Running A Sui Validator
+description: "Steps to setup a Sui Validator on testnet"
+---
+
+The Steps to setup a Sui Validator are similar to that of running a Sui Fullnode
+
+## System Requirements
+
+These are the recommended requirements given during testnet wave phase.
+
+- CPUs: 24 physical cores / 48 vCPUs
+- RAM: 128 GB
+- Storage (SSD): 2 TB NVMe drive
+
+## Steps to Setup a Validator
+
+<Tip>
+  In this walkthough we are going to setup a validator for `Mainnet`, but the
+  steps remain same for other Sui networks.
+</Tip>
+
+### Step 1: Connect to the Server
+
+To connect to your server, use SSH or RDP to access the server terminal, allowing you to run commands directly.
+
+### Step 2: Download and Run Sui Wizard
+
+- Download the script
+
+  ```bash
+  curl --fail --location --output helper.sh https://raw.githubusercontent.com/Scale3-Labs/sui-node-helper/master/helper.sh
+  ```
+
+- Give executable permissions
+
+  ```bash
+  chmod +x helper.sh
+  ```
+
+- Run the script
+
+  <Note>
+    _If the script prompts to install dependencies, type 'y' to install them._
+  </Note>
+
+  ```bash
+  ./helper.sh
+  ```
+
+### Step 3: Configure the server for running Sui Mainnet Validator
+
+- Once you are on the welcome screen, follow the screenshots below for the steps.
+  Press `Yes`
+  ![Sui Wizard Welcome](/node-setup/sui-wizard/assets/sui-wizard-welcome.png)
+
+- Read the instructions and press `Yes` to continue.
+  ![Sui Wizard Navigation Instructions](/node-setup/sui-wizard/assets/sui-wizard-navigation-instructions.png)
+
+- Since we are setting up a Validator, we will select the **Validator Node** option.
+  ![Sui Wizard Node Type Choice](/node-setup/sui-wizard/assets/sui-wizard-node-type-validator-choice.png)
+
+- Select **Setup Validator From Scratch**
+  ![Sui Wizard Node Operations](/node-setup/sui-wizard/assets/sui-wizard-validator-node-operations.png)
+
+- For the next screen, you are asked to choose Sui network, we will choose **Mainnet**.
+  ![Sui Wizard Network Choice](/node-setup/sui-wizard/assets/sui-wizard-network-choice.png)
+
+- On the next page there are two fields, you can keep it default.
+
+1.  Release Version or hash
+
+    This is the `sui-node` version that has to be installed. The values can be either:
+
+    - **Github release**: sui-v1.0.0, testnet-1.0.0
+    - **Branch**: mainnet, testnet, or devnet
+    - **Commit Hash**: ae1212baf8f0837e25926d941db3d26a61c1bea2, c525ba6489261ff6db65e87bf9a3fdda0a6c7be3
+
+    > Avoid using commit hash as much as possible, using **Github Release is the easiest and recommended option**.
+
+2.  Absolute folder for configs
+
+    Path to the folder where you want to store all your Sui node configs. Configs include `validator.yaml`, binaries, etc.
+
+    <Tip>Make sure to remember this path for updating your node in future.</Tip>
+
+    ![Sui Wizard Release Input Window](/node-setup/sui-wizard/assets/sui-wizard-release-input-window.png)
+
+    After pressing `OK` or hitting enter/return, the download of the Sui binary will start, and once it's successfully downloaded, the binary version will be displayed.
+
+- Next step is to setup validator config and keystore. This basically creates `client.yaml` file which will be used by Sui validator tool aka sui client to interact with Sui network.
+  ![Sui Wizard Validator Keystore](/node-setup/sui-wizard/assets/sui-wizard-validator-keystore.png)
+  Once the client file is created, you will have an option to view and edit the file. **If you do not have any idea, just keep it default**.
+
+  Press `tab` key to switch between edit text box and `OK` button.
+  ![Sui Wizard Validator Keystore](/node-setup/sui-wizard/assets/sui-wizard-validator-tool-client-config.png)
+
+- Take the note of `Wallet Recovery Phrase` for backup purposes. You can either take a screenshot or take a picture from your mobile.
+
+- This is the step where you provide your validator info (metadata) to the Sui network. This details are shown on Sui explorer dashboards.
+
+  1. Validator Name: This is your company/org or project name
+  2. Description: Here you can provide more details on what your company does.
+  3. Logo URL: Public URL for your company logo.
+  4. Project URL: Company website URL.
+  5. Host/IP: DNS name for Validator, or else Public IP of the Validator.
+  6. Gas Price: Integer value of the gas price in MIST. To check the current gas price refer Sui explorer: https://suiexplorer.com/
+
+  ![Sui Wizard Validator Info](/node-setup/sui-wizard/assets/sui-wizard-validator-info.png)
+
+- Proceed to setting up Sui systemd service. You will now be asked to enter a path for storing data. If you're unsure about the appropriate value, it's recommended to keep the default setting.
+
+  <Tip>
+    _The folder path should be directed to a disk with ample free space for
+    storing the Sui Blockchain data._
+  </Tip>
+
+  ![Sui Wizard Data Folder Input](/node-setup/sui-wizard/assets/sui-wizard-data-folder-input.png)
+
+- Once the service setup is completed, to become the validator, at first you need to sign up as validator candidate, by selecting `Perform Validator Operations`.
+
+  <Info>
+    When requested, insert the Sui path that you added in "Absolute folder for
+    configs" field during setup.
+  </Info>
+
+- Your next step is to get enough Sui tokens on the validator address.
+
+- After validator address becomes a validator candidate and you have enough Sui tokens staked, you can make a request to network to become validator by selecting `Perform Validator Operations`.
+
+  <Info>
+    When requested, insert the Sui path that you added in "Absolute folder for
+    configs" field during setup.
+  </Info>
+  ![Sui Wizard Validator Operations](/node-setup/sui-wizard/assets/sui-wizard-validator-operations.png)
+
+- Any time you can start/stop/restart your validator process using the following command
+
+  ```bash
+  systemctl start sui-node
+  systemctl stop sui-node
+  systemctl restart sui-node
+  ```
+
+- Once you start/restart your sui-node service, you can check the logs by running the following command:
+  ```bash
+  journalctl -fu sui-node
+  ```
+
+## Reference
+
+Official Steps to run validator: https://github.com/MystenLabs/sui/blob/main/nre/sui_for_node_operators.md
