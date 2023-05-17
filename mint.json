@@ -82,6 +82,7 @@
             "node-setup/sui-wizard/sui-wizard-introduction",
             "node-setup/sui-wizard/running-a-sui-fullnode",
             "node-setup/sui-wizard/running-a-sui-validator",
+            "node-setup/sui-wizard/sui-node-operations",
             "node-setup/sui-wizard/sui-node-helper-faqs"
           ]
         }
