@@ -1,39 +1,40 @@
 ---
 title: Introduction
-description: 'Welcome to the Scale3 Documentation. Here you will find all the information you need to get started with Scale3.'
+description: "Welcome to the Scale3 Documentation. Here you will find all the information you need to get started with Scale3."
 ---
 
 Whether you have a validator node or a full node, Scale3 provides you with a set of tools to help you manage your node and keep it healthy.
-* If you already have a node, you can jump straight to the [Setup Alerts](#setup-alerts-for-your-validator-node) section.
-* If you wish to setup a new node, you can follow the [Node Setup](#setup-and-run-a-validator-or-full-node) section to first get a node up and running. Then you can start with the [Setup Alerts](#setup-alerts-for-your-validator-node) section to setup alerts followed by the [Setup Monitoring](#setup-a-monitoring-dashboard-for-your-validator-node) section to setup a monitoring dashboard. 
-> **Note**: Scale3 does not provide node hosting infrastructure. We have built an open source tool to help you set up a validator or a full node.
+
+- If you already have a node, you can jump straight to the [Setup Alerts](#setup-alerts-for-your-validator-node) section.
+- If you wish to setup a new node, you can follow the [Node Setup](#setup-and-run-a-validator-or-full-node) section to first get a node up and running. Then you can start with the [Setup Alerts](#setup-alerts-for-your-validator-node) section to setup alerts followed by the [Setup Monitoring](#setup-a-monitoring-dashboard-for-your-validator-node) section to setup a monitoring dashboard.
+  > **Note**: Scale3 does not provide node hosting infrastructure. We have built an open source tool to help you set up a validator or a full node.
 
 ## Setup Alerts for your validator node
+
 Setup alerts for your node health, validator metrics, node software releases and network events and be notified via email, slack or pagerduty.
 
 ![Scale3 Alerting](/images/sui-alerts.png)
 
 <CardGroup cols={2}>
-  <Card
-    title="Node health"
-    icon="bell-on"
-    href="/alerting/node-health"
-  >
-    Get alerted when your node's CPU, memory or disk usage is high. Also get alerted when your node is down or has no peers.
+  <Card title="Node health" icon="bell-on" href="/alerting/node-health">
+    Get alerted when your node's CPU, memory or disk usage is high. Also get
+    alerted when your node is down or has no peers.
   </Card>
   <Card
     title="Validator metrics"
     icon="signal-bars"
     href="/alerting/validator-metrics"
   >
-    Get alerted when your validator is reported for misbehavior, low on stake or when it is time to set the Reference Gas Price(RGP).
+    Get alerted when your validator is reported for misbehavior, low on stake or
+    when it is time to set the Reference Gas Price(RGP).
   </Card>
   <Card
     title="Network intelligence"
     icon="magnifying-glass-chart"
     href="/alerting/network-intelligence"
   >
-    Get alerted for network events like new software releases, announcements, network upgrades and more.
+    Get alerted for network events like new software releases, announcements,
+    network upgrades and more.
   </Card>
 </CardGroup>
 
@@ -53,43 +54,42 @@ Currently, we provide two methods to link your validator node to our platform.
   >
     Installs the Grafana agent. Includes node & host metrics.
   </Card>
-  <Card
-    title="IP/URL based - Pull"
-    icon="link"
-    href="/monitoring/pull-method"
-  >
+  <Card title="IP/URL based - Pull" icon="link" href="/monitoring/pull-method">
     Requires the RPC & Prometheus ports exposed. Includes only node metrics.
   </Card>
 </CardGroup>
 
 ## Setup and run a validator or full node
 
-> **Note**: We currently support this only for the SUI blockchain. We will be adding support for other blockchains soon.
+> **Note**: We currently support this only for the Sui blockchain. We will be adding support for other blockchains soon.
 
-Setup a SUI validator/full node using our [open source tool](https://github.com/Scale3-Labs/sui-node-helper) - Sui Node Wizard.
+Setup a Sui validator/full node using our [open source tool](https://github.com/Scale3-Labs/sui-node-helper) - Sui Node Wizard.
 
-![SUI Node Wizard](/images/sui-node-wizard.png)
+![Sui Node Wizard](/images/sui-node-wizard.png)
 
 <CardGroup cols={2}>
   <Card
-    title="SUI Fullnode"
-    icon="gear-code"
-    href="/node-setup/running-a-sui-fullnode"
+    title="Sui Fullnode"
+    icon="gear"
+    iconType="regular"
+    href="/node-setup/sui-wizard/running-a-sui-fullnode"
   >
-    Setup a SUI Fullnode and use it for developing applications on the SUI blockchain.
+    Setup a Sui Fullnode and use it for developing applications on the Sui
+    blockchain.
   </Card>
-    <Card
-    title="SUI Validator"
+  <Card
+    title="Sui Validator"
     icon="sack-dollar"
-    href="/node-setup/running-a-sui-validator"
+    href="/node-setup/sui-wizard/running-a-sui-validator"
   >
-    Selected to run a SUI Validator? Follow the best practices to set it up efficiently.
+    Selected to run a Sui Validator? Follow the best practices to set it up
+    efficiently.
   </Card>
 </CardGroup>
 
 ## Node Inventory Management
 
-> **Note**: We currently support this only for the SUI, APTOS, ETH, SOL, NEAR, MATIC and AVAX. We will be adding support for other blockchains soon.
+> **Note**: We currently support this only for the Sui, APTOS, ETH, SOL, NEAR, MATIC and AVAX. We will be adding support for other blockchains soon.
 
 Do you run a cluster of nodes across different networks? Setup a single view dashboard for all your nodes and manage them efficiently.
 
@@ -115,6 +115,7 @@ Would you like to integrate Scale3 with your existing tools? We provide a set of
     icon="code"
     href="/api-integration/introduction"
   >
-    Follow the API integration guide to integrate Scale3 with your existing tools.
+    Follow the API integration guide to integrate Scale3 with your existing
+    tools.
   </Card>
 </CardGroup>

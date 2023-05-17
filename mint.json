@@ -65,22 +65,31 @@
     },
     {
       "group": "Monitoring",
-      "pages": ["monitoring/introduction", "monitoring/push-method", "monitoring/pull-method"]
+      "pages": [
+        "monitoring/introduction",
+        "monitoring/push-method",
+        "monitoring/pull-method"
+      ]
     },
     {
-      "group": "Validator/Fullnode Setup",
+      "group": "Blockchain Node Setup",
       "pages": [
         "node-setup/introduction",
-        "node-setup/running-a-sui-fullnode",
-        "node-setup/running-a-sui-validator",
-        "node-setup/sui-node-helper-faqs"
+        "node-setup/run-sui-fullnode-manually",
+        {
+          "group": "Sui Wizard",
+          "pages": [
+            "node-setup/sui-wizard/sui-wizard-introduction",
+            "node-setup/sui-wizard/running-a-sui-fullnode",
+            "node-setup/sui-wizard/running-a-sui-validator",
+            "node-setup/sui-wizard/sui-node-helper-faqs"
+          ]
+        }
       ]
     },
     {
       "group": "Node Inventory Management",
-      "pages": [
-        "node-inventory/introduction"
-      ]
+      "pages": ["node-inventory/introduction"]
     },
     {
       "group": "API Integration",
@@ -92,7 +101,10 @@
     },
     {
       "group": "Node Checker",
-      "pages": ["nodechecker/sui-node-checker", "nodechecker/aptos-node-checker"]
+      "pages": [
+        "nodechecker/sui-node-checker",
+        "nodechecker/aptos-node-checker"
+      ]
     }
   ],
   "footerSocials": {
