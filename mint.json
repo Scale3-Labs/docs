@@ -10,7 +10,10 @@
     "primary": "#BE63FF",
     "light": "#D9A4FF",
     "dark": "#886bfe",
-    "anchors": { "from": "#886BFE", "to": "#BE63FF" }
+    "anchors": {
+      "from": "#886BFE",
+      "to": "#BE63FF"
+    }
   },
   "topbarLinks": [
     {
@@ -42,7 +45,9 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction"
+      ]
     },
     {
       "group": "Alerting",
@@ -68,7 +73,8 @@
       "pages": [
         "monitoring/introduction",
         "monitoring/push-method",
-        "monitoring/pull-method"
+        "monitoring/pull-method",
+        "monitoring/push-method-k8s"
       ]
     },
     {
@@ -90,15 +96,22 @@
     },
     {
       "group": "Node Inventory Management",
-      "pages": ["node-inventory/introduction"]
+      "pages": [
+        "node-inventory/introduction"
+      ]
     },
     {
       "group": "API Integration",
-      "pages": ["api-integration/introduction", "api-integration/reference"]
+      "pages": [
+        "api-integration/introduction",
+        "api-integration/reference"
+      ]
     },
     {
       "group": "Command Line Interface",
-      "pages": ["command-line-interface/introduction"]
+      "pages": [
+        "command-line-interface/introduction"
+      ]
     },
     {
       "group": "Node Checker",
