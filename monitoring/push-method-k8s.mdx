@@ -1,0 +1,108 @@
+---
+title: Setup monitoring dashboard for your Kubernetes hosted node using Agent
+---
+
+Monitoring a Kubernetes hosted node requires installing Grafana agent on your Kubernetes cluster and passing the agent.yaml as ConfigMap. Follow these steps to get your nodes monitored!
+## Before you begin
+- A Kubernetes cluster with [role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) (RBAC) enabled.
+- Your node metrics endpoint need to be exposed via a service.
+- The `kubectl` command-line tool installed on your local machine, configured to connect to your cluster. To learn more about `kubectl`, see the [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/).
+- To install using Helm (best practice) verify Helm is running in your Kubernetes configuration. See [https://github.com/kubernetes/helm](https://github.com/kubernetes/helm) for more information.
+- A Scale3 Autopilot tenant remote-write endpoint. You will need this to populate the values.yaml file. Get in touch here to have a tenant provisioned for you.
+
+There are two supported methods of installation:
+
+- **[Deploy using Helm (Recommended)](#deploy-using-helm)**
+- **[Deploy using YAML](#deploy-using-yaml-tbd) (TBD)**
+
+## Deploy using Helm
+
+Helm, maintained by the CNCF, allows the Kubernetes administrator to install, upgrade, and manage the applications running in their Kubernetes clusters. For more information on how to use and configure Helm Charts, see the Helm [site](https://helm.sh/) and [repository](https://github.com/kubernetes/helm) for tutorials and product documentation.
+
+To install and configure with Helm:
+
+- Add Grafana Agent chart repo
+
+```bash
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+```
+
+- Create a values.yaml file with the tenant information provisioned as part of the prerequisites.
+
+<Accordion title="values.yaml example for ETH node">
+  Example values.yaml file. Please copy and customize with your tenant specific information. Replace all values indicate by ` #REPLACE_ME ` with your tenant specific values.
+
+```bash
+# Various agent settings.
+agent:
+  # -- Mode to run Grafana Agent in. Can be "flow" or "static".
+  mode: "static"
+  configMap:
+    # -- Create a new ConfigMap for the config file.
+    create: true
+    # -- Content to assign to the new ConfigMap. This is passed into `tpl` allowing for templating from values.
+    content: |
+      metrics:
+        wal_directory: "/var/lib/scale3"
+        global:
+          scrape_interval: 15s
+          remote_write:
+            - url: YOUR_REMOTE_WRITE_URL #REPLACE_ME
+              basic_auth:
+                username: YOUR_PROMETHEUS_REMOTE_WRITE_USERNAME #REPLACE_ME
+                password: YOUR_PROMETHEUS_REMOTE_WRITE_PASSWORD #REPLACE_ME
+              headers:
+                tenant_id: YOUR_TENANT_ID #REPLACE_ME
+              queue_config:
+                # Number of samples to buffer per shard before we start dropping them.
+                capacity: 10000
+                batch_send_deadline: 5s
+                # Maximum number of shards,i.e. amount of concurrency.
+                max_shards: 10
+                min_shards: 1
+                # Maximum number of samples per send.
+                max_samples_per_send: 500
+                # Maximum number of samples per send.
+                min_backoff: 1s
+                max_backoff: 15s
+          external_labels:
+            tenant_id: YOUR_TENANT_ID #REPLACE_ME
+            hostname: ${HOSTNAME}
+        configs:
+          - name: "lighthouse_vc"
+            scrape_configs:
+              - job_name: "lighthouse_vc Metrics" 
+                honor_timestamps: false
+                static_configs:
+                  - targets: ["localhost:5064"]
+          - name: "lighthouse_bc"
+            scrape_configs:
+              - job_name: "lighthouse_bc Metrics" 
+                honor_timestamps: false
+                static_configs:
+                  - targets: ["localhost:5054"]
+          - name: "geth"
+            scrape_configs:
+              - job_name: "geth Metrics" 
+                metrics_path: /debug/metrics/prometheus
+                scheme: http
+                honor_timestamps: false
+                static_configs:
+                  - targets: ["target"]
+```
+</Accordion>
+
+
+- Once you've customized the values.yaml file with your tenant information. Install the chart with by running
+```bash
+helm install my-grafana-agent -f values.yaml grafana/grafana-agent
+```
+
+- Navigate to your node monitoring dashboard within [Scale3 Autopilot](https://www.scale3labs.com/signin), you should see data from your node starting to populate.
+
+To learn more about using and modifying charts, see:
+- [https://github.com/splunk/splunk-connect-for-kubernetes/tree/main/helm-chart](https://github.com/splunk/splunk-connect-for-kubernetes/tree/main/helm-chart)
+- [https://docs.helm.sh/using_helm/#using-helm](https://docs.helm.sh/using_helm/#using-helm).
+
+## Deploy using YAML (TBD)
