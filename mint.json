@@ -110,7 +110,8 @@
     {
       "group": "Command Line Interface",
       "pages": [
-        "command-line-interface/introduction"
+        "command-line-interface/introduction",
+        "command-line-interface/uninstall-Scale3-CLI"
       ]
     },
     {
