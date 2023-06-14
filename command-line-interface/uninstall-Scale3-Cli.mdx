@@ -1,0 +1,21 @@
+---
+🚧 title: Uninstall Scale3 CLI
+---
+
+To uninstall Scale3 CLI you can either find your previous install directory or start by downloading the uninstall script. For this exercise, we walk through downloading the script.
+
+- Log in to the node you want to uninstall the node from.
+- Download the uninstall script and change the permissions
+
+```bash
+curl -L -G --fail "https://web-backend.scale3production.com/cli/binary" | tar -xz
+chmod a+x uninstallcli.sh
+```
+
+- Run the uninstall script
+
+```bash
+./uninstallcli.sh
+```
+
+- This completes the removal of the Scale3 CLI from your node. You can follow the onboarding [steps](https://scale3labs.com/docs/monitoring/introduction) to monitor your node again.
