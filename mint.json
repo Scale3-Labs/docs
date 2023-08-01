@@ -43,85 +43,86 @@
     }
   ],
   "navigation": [
-    {
-      "group": "Home",
-      "pages": [
-        "introduction"
-      ]
-    },
-    {
-      "group": "Alerting",
-      "pages": [
-        "alerting/introduction",
-        "alerting/node-health",
-        "alerting/validator-metrics",
-        "alerting/network-intelligence"
-      ]
-    },
-    {
-      "group": "Alert Channels",
-      "pages": [
-        "channels/introduction",
-        "channels/email",
-        "channels/slack",
-        "channels/pagerduty",
-        "channels/firehydrant"
-      ]
-    },
-    {
-      "group": "Monitoring",
-      "pages": [
-        "monitoring/introduction",
-        "monitoring/push-method",
-        "monitoring/pull-method",
-        "monitoring/push-method-k8s"
-      ]
-    },
-    {
-      "group": "Blockchain Node Setup",
-      "pages": [
-        "node-setup/introduction",
-        "node-setup/run-sui-fullnode-manually",
-        {
-          "group": "Sui Wizard",
-          "pages": [
-            "node-setup/sui-wizard/sui-wizard-introduction",
-            "node-setup/sui-wizard/running-a-sui-fullnode",
-            "node-setup/sui-wizard/running-a-sui-validator",
-            "node-setup/sui-wizard/sui-node-operations",
-            "node-setup/sui-wizard/sui-node-helper-faqs"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Node Inventory Management",
-      "pages": [
-        "node-inventory/introduction"
-      ]
-    },
-    {
-      "group": "API Integration",
-      "pages": [
-        "api-integration/introduction",
-        "api-integration/reference"
-      ]
-    },
-    {
-      "group": "Command Line Interface",
-      "pages": [
-        "command-line-interface/introduction",
-        "command-line-interface/uninstall-Scale3-CLI"
-      ]
-    },
-    {
-      "group": "Node Checker",
-      "pages": [
-        "nodechecker/sui-node-checker",
-        "nodechecker/aptos-node-checker"
-      ]
-    }
-  ],
+		{
+			"group": "Home",
+			"pages": ["introduction"]
+		},
+		{
+			"group": "Alerting",
+			"pages": [
+				"alerting/introduction",
+				"alerting/node-health",
+				"alerting/validator-metrics",
+				"alerting/network-intelligence"
+			]
+		},
+		{
+			"group": "Alert Channels",
+			"pages": [
+				"channels/introduction",
+				"channels/email",
+				"channels/slack",
+				"channels/pagerduty",
+				"channels/firehydrant"
+			]
+		},
+		{
+			"group": "Monitoring",
+			"pages": [
+				"monitoring/introduction",
+				"monitoring/push-method",
+				"monitoring/pull-method",
+				"monitoring/push-method-k8s"
+			]
+		},
+		{
+			"group": "NodeKeeper",
+			"pages": [
+				"nodekeeper/introduction",
+        "nodekeeper/nodekeeper-on-gcp",
+        "nodekeeper/nodekeeper-on-aws"
+			]
+		},
+		{
+			"group": "Blockchain Node Setup",
+			"pages": [
+				"node-setup/introduction",
+				"node-setup/run-sui-fullnode-manually",
+				{
+					"group": "Sui Wizard",
+					"pages": [
+						"node-setup/sui-wizard/sui-wizard-introduction",
+						"node-setup/sui-wizard/running-a-sui-fullnode",
+						"node-setup/sui-wizard/running-a-sui-validator",
+						"node-setup/sui-wizard/sui-node-operations",
+						"node-setup/sui-wizard/sui-node-helper-faqs"
+					]
+				}
+			]
+		},
+		{
+			"group": "Node Inventory Management",
+			"pages": ["node-inventory/introduction"]
+		},
+		{
+			"group": "API Integration",
+			"pages": ["api-integration/introduction", "api-integration/reference"]
+		},
+		{
+			"group": "Command Line Interface",
+			"pages": [
+				"command-line-interface/introduction",
+				"command-line-interface/uninstall-Scale3-Cli"
+			]
+		},
+		{
+			"group": "Node Checker",
+			"pages": [
+				"nodechecker/sui-node-checker",
+				"nodechecker/aptos-node-checker"
+			]
+		}
+	],
   "footerSocials": {
     "twitter": "https://twitter.com/Scale3Labs",
     "discord": "https://discord.com/invite/h74CkNv4h9",
