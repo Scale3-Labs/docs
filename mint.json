@@ -1,48 +1,48 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Scale3Labs",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#BE63FF",
-    "light": "#D9A4FF",
-    "dark": "#886bfe",
-    "anchors": {
-      "from": "#886BFE",
-      "to": "#BE63FF"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Log In",
-      "url": "https://www.scale3labs.com/signin"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Sign Up",
-    "url": "https://www.scale3labs.com/signup"
-  },
-  "anchors": [
-    {
-      "name": "Blog",
-      "icon": "medium",
-      "url": "https://medium.com/scale3-labs"
-    },
-    {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.com/invite/h74CkNv4h9"
-    },
-    {
-      "name": "Contact Us",
-      "icon": "envelope",
-      "url": "mailto:contact@scale3labs.com"
-    }
-  ],
-  "navigation": [
+	"$schema": "https://mintlify.com/schema.json",
+	"name": "Scale3Labs",
+	"logo": {
+		"dark": "/logo/dark.svg",
+		"light": "/logo/light.svg"
+	},
+	"favicon": "/favicon.png",
+	"colors": {
+		"primary": "#BE63FF",
+		"light": "#D9A4FF",
+		"dark": "#886bfe",
+		"anchors": {
+			"from": "#886BFE",
+			"to": "#BE63FF"
+		}
+	},
+	"topbarLinks": [
+		{
+			"name": "Log In",
+			"url": "https://www.scale3labs.com/signin"
+		}
+	],
+	"topbarCtaButton": {
+		"name": "Sign Up",
+		"url": "https://www.scale3labs.com/signup"
+	},
+	"anchors": [
+		{
+			"name": "Blog",
+			"icon": "medium",
+			"url": "https://medium.com/scale3-labs"
+		},
+		{
+			"name": "Community",
+			"icon": "discord",
+			"url": "https://discord.com/invite/h74CkNv4h9"
+		},
+		{
+			"name": "Contact Us",
+			"icon": "envelope",
+			"url": "mailto:contact@scale3labs.com"
+		}
+	],
+	"navigation": [
 		{
 			"group": "Home",
 			"pages": ["introduction"]
@@ -79,8 +79,9 @@
 			"group": "NodeKeeper",
 			"pages": [
 				"nodekeeper/introduction",
-        "nodekeeper/nodekeeper-on-gcp",
-        "nodekeeper/nodekeeper-on-aws"
+				"nodekeeper/responsibility-model",
+				"nodekeeper/nodekeeper-on-gcp",
+				"nodekeeper/nodekeeper-on-aws"
 			]
 		},
 		{
@@ -123,9 +124,9 @@
 			]
 		}
 	],
-  "footerSocials": {
-    "twitter": "https://twitter.com/Scale3Labs",
-    "discord": "https://discord.com/invite/h74CkNv4h9",
-    "website": "https://www.scale3labs.com/"
-  }
+	"footerSocials": {
+		"twitter": "https://twitter.com/Scale3Labs",
+		"discord": "https://discord.com/invite/h74CkNv4h9",
+		"website": "https://www.scale3labs.com/"
+	}
 }
