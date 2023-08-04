@@ -81,7 +81,8 @@
 				"nodekeeper/introduction",
 				"nodekeeper/responsibility-model",
 				"nodekeeper/nodekeeper-on-gcp",
-				"nodekeeper/nodekeeper-on-aws"
+				"nodekeeper/nodekeeper-on-aws",
+				"nodekeeper/nodekeeper-cost-estimation"
 			]
 		},
 		{
