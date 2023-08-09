@@ -38,8 +38,8 @@ Follow the instructions to create a service account key for your project.
             ![GCP Service Account Keys Tab](/nodekeeper/assets/nodekeeper-gcp-keys-tab.png)
             2. The key type should be JSON and click create, within few seconds it should start downloading the key.
     </Tab>
-    <Tab title="GCloud Cli">
-        This step assumes that you have installed and configured gcloud cli on your machine. If not, please follow the instructions [here](https://cloud.google.com/sdk/docs/install) to install and configure gcloud cli.
+    <Tab title="gcloud CLI">
+        This step assumes that you have installed and configured gcloud CLI on your machine. If not, please follow the instructions [here](https://cloud.google.com/sdk/docs/install) to install and configure gcloud CLI.
         1.  Setup required variable that will be used throughout the process
             ```bash
             SCALE3_GCP_PROJECT_ID=<GCP Project Id where you want to setup a node>
@@ -90,7 +90,7 @@ If you want to remove NodeKeeper access from your GCP account, you have to delet
         2. Search for the service account that you created for NodeKeeper by searching for `scale3-nodekeeper` and click on the service account email.
         3. Click on the delete button and confirm the deletion.
     </Tab>
-    <Tab title="GCloud Cli">
+    <Tab title="gcloud CLI">
     	Run the following command to delete the Service account
         ```bash 
         gcloud iam service-accounts delete scale3-nodekeeper@$SCALE3_GCP_PROJECT_ID.iam.gserviceaccount.com \
@@ -99,3 +99,11 @@ If you want to remove NodeKeeper access from your GCP account, you have to delet
     </Tab>
 
 </Tabs>
+
+# Resources Provisioned
+
+- Compute Engine Instance with 50 GB of balanced type boot disk
+- Compute Disk (size depends on choosen chain)
+- Two firewall rules
+  - Allow SSH from NodeKeeper IP
+  - Allow traffic to required ports from anywhere
