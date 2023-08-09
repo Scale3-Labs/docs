@@ -1,6 +1,13 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Scale3Labs",
+  "api": {
+    "baseUrl":  "https://web-backend.scale3production.com",
+    "auth": {
+      "method": "key",
+      "name": "x-api-key"
+    }
+  },
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -53,9 +60,10 @@
       "group": "Alerting",
       "pages": [
         "alerting/introduction",
+        "alerting/validator-alerts",
         "alerting/node-health",
-        "alerting/validator-metrics",
-        "alerting/network-intelligence"
+        "alerting/network-intelligence",
+        "alerting/node-updates-intelligence"
       ]
     },
     {
@@ -64,8 +72,7 @@
         "channels/introduction",
         "channels/email",
         "channels/slack",
-        "channels/pagerduty",
-        "channels/firehydrant"
+        "channels/pagerduty"
       ]
     },
     {
@@ -104,14 +111,26 @@
       "group": "API Integration",
       "pages": [
         "api-integration/introduction",
-        "api-integration/reference"
+        {
+          "group": "Node Updates",
+          "pages": [
+            "api-integration/node-updates/GET-node-updates"
+          ]
+        },
+        {
+          "group": "Network Feed",
+          "pages": [
+            "api-integration/network-feed/GET-network-feed"
+          ]
+        }
       ]
     },
     {
       "group": "Command Line Interface",
       "pages": [
         "command-line-interface/introduction",
-        "command-line-interface/uninstall-Scale3-CLI"
+        "command-line-interface/uninstall-Scale3-Cli",
+        "command-line-interface/commands"
       ]
     },
     {
