@@ -85,6 +85,12 @@
       ]
     },
     {
+      "group": "Logging",
+      "pages": [
+        "logging/getting-started"
+      ]
+    },
+    {
       "group": "Blockchain Node Setup",
       "pages": [
         "node-setup/introduction",
@@ -129,8 +135,8 @@
       "group": "Command Line Interface",
       "pages": [
         "command-line-interface/introduction",
-        "command-line-interface/uninstall-Scale3-Cli",
-        "command-line-interface/commands"
+        "command-line-interface/install-Scale3-Cli",
+        "command-line-interface/uninstall-Scale3-Cli"
       ]
     },
     {
