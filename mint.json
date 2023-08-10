@@ -73,7 +73,6 @@
       "pages": [
         "monitoring/introduction",
         "monitoring/push-method",
-        "monitoring/pull-method",
         "monitoring/push-method-k8s"
       ]
     },
