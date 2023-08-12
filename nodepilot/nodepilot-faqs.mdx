@@ -6,27 +6,27 @@ description: "Some collection of questions that you might have."
 
 <AccordionGroup>
 
-<Accordion title='What all resources does NodeKeeper create?'>
-    Resources that NodeKeeper creates are listed under the platform specific page. Check [here](/nodekeeper/nodekeeper-on-gcp#resources-provisioned) for GCP and [here](/nodekeeper/nodekeeper-on-aws#resources-provisioned) for AWS.
-
-</Accordion>
-
-<Accordion title='How much access does NodeKeeper have?'>
-    The access depends on the permissions you provide to GCP serviceaccount or AWS user. NodeKeeper does not require any special permissions. It only requires permissions to create resources that are listed [here](/nodekeeper/nodekeeper-on-gcp#resources-provisioned) for GCP and [here](/nodekeeper/nodekeeper-on-aws#resources-provisioned) for AWS.
-    You can also modify and implement a stricter policy for NodeKeeper.
-
-</Accordion>
-
-<Accordion title='How to remove NodeKeeper access?'>
-    Just delete the keys from your cloud provider or delete the user/serviceaccount that you created for NodeKeeper. For SSH access, you can delete the public key from the authorized_keys file usually located in `~/.ssh/authorized_keys` directory on the node.
-
-</Accordion>
-
-<Accordion title="What is your blockchain node provisioning service all about?">
-	NodeKeeper allows you to easily deploy and manage blockchain nodes on major
+<Accordion title="What is your Nodepilot?">
+	Nodepilot allows you to easily deploy and manage blockchain nodes on major
 	cloud providers like GKE, AWS, etc. You provide the necessary information, and
 	we handle the complex setup and management processes for you. To know more
 	about it visit #TODO home page
+</Accordion>
+
+<Accordion title='What all resources does Nodepilot create?'>
+    Resources that Nodepilot creates are listed under the platform specific page. Check [here](/nodepilot/nodepilot-on-gcp#resources-provisioned) for GCP and [here](/nodepilot/nodepilot-on-aws#resources-provisioned) for AWS.
+
+</Accordion>
+
+<Accordion title='How much access does Nodepilot have?'>
+    The access depends on the permissions you provide to GCP serviceaccount or AWS user. Nodepilot does not require any special permissions. It only requires permissions to create resources that are listed [here](/nodepilot/nodepilot-on-gcp#resources-provisioned) for GCP and [here](/nodepilot/nodepilot-on-aws#resources-provisioned) for AWS.
+    You can also modify and implement a stricter policy for Nodepilot.
+
+</Accordion>
+
+<Accordion title='How to remove Nodepilot access?'>
+    Just delete the keys from your cloud provider or delete the user/serviceaccount that you created for Nodepilot. For SSH access, you can delete the public key from the authorized_keys file usually located in `~/.ssh/authorized_keys` directory on the node.
+
 </Accordion>
 
 <Accordion title="How do I get started with your service?">
@@ -37,8 +37,8 @@ description: "Some collection of questions that you might have."
 
 <Accordion title="What cloud providers do you support?">
 	We support provisioning on AWS and GCP. If you already have a server
-	provisioned anywhere (cloud or DC), we can help set up a blockchain node on
-	it.
+	provisioned anywhere (cloud or datacenter), we can help set up a blockchain node on
+	it aswell.
 </Accordion>
 
 <Accordion title="What is the advantage of using your service over setting up nodes manually?">
@@ -49,39 +49,39 @@ description: "Some collection of questions that you might have."
 </Accordion>
 
 <Accordion title="What blockchain networks and chains are supported?">
-	Our service supports a range of popular blockchain networks and chains. Please
+	Today we support SUI, BASE, ETH, AVAX, POLYGON, FLOW and APTOS. Please
 	provide us with the specific details of the network type and chain you want to
 	deploy, and we will configure it accordingly.
 </Accordion>
 
 <Accordion title="How long does it take to provision a blockchain node?">
-	The provisioning takes hardly 10 minutes, but the node syncing can take time
+	The provisioning takes less than 10 minutes, but the node syncing can take time
 	based on the chosen network and chain syncing speeds.
 </Accordion>
 
 <Accordion title="What happens if I need additional nodes or want to scale up my blockchain network?">
 	You can easily scale up your blockchain network by requesting additional nodes
 	through our service. We will guide you through the process and ensure that the
-	new nodes are seamlessly integrated into your existing setup.
+	new nodes are seamlessly integrated into your existing setup. In addition, we can also setup HA node clusters for you.
 </Accordion>
 
 <Accordion title="How is billing handled for the cloud resources used by my blockchain nodes?">
 	The billing for cloud resources (compute, storage, etc.) will be based on the
 	pricing model of the respective cloud provider you choose. You will be
 	responsible for any associated costs. There is no hidden cost associated with
-	Node Provisioning through node keeper.
+	Node Provisioning through Nodepilot. We only charge for the service we provide.
 </Accordion>
 
 <Accordion title="Do you provide customer support in case I encounter any issues?">
 	Yes, we offer customer support to assist you with any issues or questions you
-	may have. You can reach out to our support team through the
+	may have. You can reach out to our support team through the chat widget on our [website](https://scale3labs.com),
 	[discord](https://discord.gg/scale3-1013651494068813864) or
 	[email](mailto:contact@scale3labs.com).
 </Accordion>
 
 <Accordion title="Can I migrate my existing blockchain nodes to your service?">
 	Depending on the specifics of your existing setup, migration may be possible.
-	Please contact us to discuss your migration needs and determine the
+	Please contact us to discuss your migration needs and we can determine the
 	feasibility.
 </Accordion>
 
@@ -127,7 +127,7 @@ description: "Some collection of questions that you might have."
 <Accordion title="Is there a trial period or demo available for me to test your service before committing?">
 	We offer trial periods for eligible customers to experience our service
 	firsthand and determine if it meets their needs before making a commitment.
-	Just reach out to us.
+	Just reach out to us and we will be happy to help.
 </Accordion>
 
 </AccordionGroup>
