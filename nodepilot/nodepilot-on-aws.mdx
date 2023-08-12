@@ -1,0 +1,193 @@
+---
+title: Guide for AWS
+description: This doc will help you setup Nodepilot on AWS Account
+---
+
+Nodepilot makes it easy to setup and maintain a standalone blockchain node on AWS. This guide will help you with the steps that you need to perform for Nodepilot.
+
+# Prerequisites
+
+- An AWS account
+- VPC setup with subnets in desired location
+
+# Create an Access Key
+
+For Nodepilot to be able to crete and manage resources on your AWS account, you need to create an access key.
+
+You can create an access key by following the instructions.
+
+<Tabs>
+    <Tab title="AWS Console">
+        ## Steps to Create AWS User
+
+        1. Login to your AWS account.
+        2. Open IAM console https://console.aws.amazon.com/iamv2/home
+        3. IAM → From left menu, select users → Click `Add users` Button.
+            User Name: `scale3-nodepilot`
+        4. Click next and select the option to attch policies directly.
+            Search and select [AmazonEC2FullAccess](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-west-2#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAmazonEC2FullAccess).
+            Once the permission is added click next and create the user.
+
+        <Accordion title="[OPTIONAL] If you want to restrict access and use a custom policy instead of giving full access">
+        ```json
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "VisualEditor0",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ec2:AttachVolume",
+                        "ec2:AuthorizeSecurityGroupIngress",
+                        "ec2:DescribeInstances",
+                        "ec2:DescribeInstanceAttribute",
+                        "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
+                        "ec2:DeleteVolume",
+                        "ec2:DescribeNetworkInterfaces",
+                        "ec2:RevokeSecurityGroupEgress",
+                        "ec2:CreateSecurityGroup",
+                        "ec2:DescribeVolumes",
+                        "ec2:DescribeKeyPairs",
+                        "ec2:DetachVolume",
+                        "ec2:AuthorizeSecurityGroupEgress",
+                        "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
+                        "ec2:TerminateInstances",
+                        "ec2:ImportKeyPair",
+                        "ec2:DescribeTags",
+                        "ec2:CreateTags",
+                        "ec2:RunInstances",
+                        "ec2:DescribeSecurityGroups",
+                        "ec2:CreateVolume",
+                        "ec2:RevokeSecurityGroupIngress",
+                        "ec2:DescribeImages",
+                        "ec2:DeleteSecurityGroup",
+                        "ec2:DescribeInstanceTypes",
+                        "ec2:DeleteKeyPair"
+                    ],
+                    "Resource": "*"
+                }
+            ]
+        }
+        ```
+        </Accordion>
+
+        ## Steps to Create AWS Access Key
+
+        1. Go to user's tab on IAM console, search for user `scale3-nodepilot` and select it.
+        2. Click on `Security Credentials` tab and click `Create Access Key` button.
+        3. From the options select third party service and check the box for `Programmatic access`.
+        4. Click next, It's optional to fill anything for tags and click create access key.
+        5. Download the CSV file and keep it safe. You will need it later.
+    </Tab>
+    <Tab title="AWS Cli">
+        This step assumes that you have installed and configured AWS CLI on your machine. If not, you can follow the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+        ## Steps to Create AWS User
+
+        1.  Create AWS User
+            ```bash
+            aws iam create-user --user-name scale3-nodepilot
+            ```
+        2. Attach required permissions to the user
+            ```bash
+            aws iam attach-user-policy --user-name scale3-nodepilot --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess
+            ```
+
+        ## Steps to Create AWS Access Key
+
+        1. Create Access Key
+            ```bash
+            aws iam create-access-key --user-name scale3-nodepilot
+            ```
+        2. Copy `AccessKeyId` and `SecretAccessKey` from the output and keep it safe. You will need it later.
+    </Tab>
+
+</Tabs>
+
+# Inputs to Scale3 Nodepilot
+
+Nodepilot requires some inputs to run the setup. The following are the inputs that you need to provide:
+
+|      Property      |                Description                |       Example        |                              Comments                              |
+| :----------------: | :---------------------------------------: | :------------------: | :----------------------------------------------------------------: |
+|      Hostname      |            Name of the server             | sui-mainnet-fullnode | This will be used as the hostname of the server and visible on AWS |
+|       Region       |                AWS Region                 |      us-east-1       |             Region where you want to create the server             |
+|       VPC ID       |                AWS VPC ID                 |    vpc-1234567890    |             VPC ID where you want to create the server             |
+| Blockchain network | Blockchain network to deploy the node for |     sui-mainnet      |                 Supported mainnet, testnet, devnet                 |
+|    Access Keys     |              AWS Access Keys              |          -           |         Access keys that you created in the previous step          |
+
+# Deleting the User and Policy
+
+If you want to remove Nodepilot access, you have to delete the access key, user or permissions that were created.
+
+<Tabs>
+    <Tab title="AWS Console">
+        ## Steps to Delete AWS User
+
+        1. Login to your AWS account.
+        2. Open IAM console https://console.aws.amazon.com/iamv2/home
+        3. IAM → From left menu, select users → Search for `scale3-nodepilot` user and select it.
+        4. Click on `Security Credentials` tab and click `Delete Access Key` button.
+        5. Click on `Permissions` tab and click `Detach Policy` button.
+        6. Click on `Delete User` button to delete the user.
+    </Tab>
+    <Tab title="AWS Cli">
+        ## Steps to Delete AWS User
+
+        1. Delete All Access Keys
+            ```bash
+            IAM_USER_NAME="scale3-nodepilot"
+            # List access keys for the user
+            ACCESS_KEY_IDS=$(aws iam list-access-keys --user-name "$IAM_USER_NAME" --query 'AccessKeyMetadata[*].AccessKeyId' --output text)
+
+            if [ -z "$ACCESS_KEY_IDS" ]; then
+            echo "No access keys are associated with the user."
+            else
+            # Delete each access key for the user
+            for ACCESS_KEY_ID in $ACCESS_KEY_IDS; do
+                echo "Deleting access key: $ACCESS_KEY_ID"
+                aws iam delete-access-key --user-name "$IAM_USER_NAME" --access-key-id "$ACCESS_KEY_ID"
+            done
+            fi
+
+            echo "All access keys deleted for the user: $IAM_USER_NAME"
+            ```
+        2. Detach Policies
+            ```bash
+            IAM_USER_NAME="scale3-nodepilot"
+            POLICY_ARNS=$(aws iam list-attached-user-policies --user-name $IAM_USER_NAME --query 'AttachedPolicies[*].PolicyArn' --output text)
+            if [ -z "$POLICY_ARNS" ]; then
+            echo "No policies are attached to the user."
+            else
+            # Detach each policy from the user
+            for ARN in $(echo "$POLICY_ARNS" | tr '\t' '\n'); do
+                echo "Detaching policy: $ARN"
+                aws iam detach-user-policy --user-name $IAM_USER_NAME --policy-arn $ARN
+            done
+            fi
+
+            echo "All policies detached from the user: $IAM_USER_NAME"
+            ```
+
+            <Accordion title="[OPTIONAL] If you created a custom policy, this command will help delete it">
+            ```bash
+            SCALE3_AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
+            aws iam delete-policy --policy-arn arn:aws:iam::$SCALE3_AWS_ACCOUNT_ID:policy/scale3-nodepilot-policy
+            ```
+            </Accordion>
+        3. Delete User
+            ```bash
+            aws iam delete-user --user-name scale3-nodepilot
+            ```
+    </Tab>
+
+</Tabs>
+
+# Resources Provisioned
+
+- EC2 Instance with 50 GB of GP3 EBS
+- GP3 EBS Volume (size depends on choosen chain)
+- Two Security Groups
+  - Allow SSH from Nodepilot IP
+  - Allow traffic to required ports from anywhere
+- Key Pair

@@ -1,0 +1,133 @@
+---
+title: FAQs
+sidebarTitle: FAQs
+description: "Some collection of questions that you might have."
+---
+
+<AccordionGroup>
+
+<Accordion title="What is your Nodepilot?">
+	Nodepilot allows you to easily deploy and manage blockchain nodes on major
+	cloud providers like GKE, AWS, etc. You provide the necessary information, and
+	we handle the complex setup and management processes for you. To know more
+	about it visit #TODO home page
+</Accordion>
+
+<Accordion title='What all resources does Nodepilot create?'>
+    Resources that Nodepilot creates are listed under the platform specific page. Check [here](/nodepilot/nodepilot-on-gcp#resources-provisioned) for GCP and [here](/nodepilot/nodepilot-on-aws#resources-provisioned) for AWS.
+
+</Accordion>
+
+<Accordion title='How much access does Nodepilot have?'>
+    The access depends on the permissions you provide to GCP serviceaccount or AWS user. Nodepilot does not require any special permissions. It only requires permissions to create resources that are listed [here](/nodepilot/nodepilot-on-gcp#resources-provisioned) for GCP and [here](/nodepilot/nodepilot-on-aws#resources-provisioned) for AWS.
+    You can also modify and implement a stricter policy for Nodepilot.
+
+</Accordion>
+
+<Accordion title='How to remove Nodepilot access?'>
+    Just delete the keys from your cloud provider or delete the user/serviceaccount that you created for Nodepilot. For SSH access, you can delete the public key from the authorized_keys file usually located in `~/.ssh/authorized_keys` directory on the node.
+
+</Accordion>
+
+<Accordion title="How do I get started with your service?">
+	To get started, checkout on which cloud you plan to run your blockchain node,
+	and based on that follow the instructions mentioned in respective
+	documentation.
+</Accordion>
+
+<Accordion title="What cloud providers do you support?">
+	We support provisioning on AWS and GCP. If you already have a server
+	provisioned anywhere (cloud or datacenter), we can help set up a blockchain node on
+	it aswell.
+</Accordion>
+
+<Accordion title="What is the advantage of using your service over setting up nodes manually?">
+	Our service eliminates the complexities and technical challenges associated
+	with setting up and managing blockchain nodes. We handle the infrastructure
+	provisioning, networking, and other configurations, saving you time and
+	effort.
+</Accordion>
+
+<Accordion title="What blockchain networks and chains are supported?">
+	Today we support SUI, BASE, ETH, AVAX, POLYGON, FLOW and APTOS. Please
+	provide us with the specific details of the network type and chain you want to
+	deploy, and we will configure it accordingly.
+</Accordion>
+
+<Accordion title="How long does it take to provision a blockchain node?">
+	The provisioning takes less than 10 minutes, but the node syncing can take time
+	based on the chosen network and chain syncing speeds.
+</Accordion>
+
+<Accordion title="What happens if I need additional nodes or want to scale up my blockchain network?">
+	You can easily scale up your blockchain network by requesting additional nodes
+	through our service. We will guide you through the process and ensure that the
+	new nodes are seamlessly integrated into your existing setup. In addition, we can also setup HA node clusters for you.
+</Accordion>
+
+<Accordion title="How is billing handled for the cloud resources used by my blockchain nodes?">
+	The billing for cloud resources (compute, storage, etc.) will be based on the
+	pricing model of the respective cloud provider you choose. You will be
+	responsible for any associated costs. There is no hidden cost associated with
+	Node Provisioning through Nodepilot. We only charge for the service we provide.
+</Accordion>
+
+<Accordion title="Do you provide customer support in case I encounter any issues?">
+	Yes, we offer customer support to assist you with any issues or questions you
+	may have. You can reach out to our support team through the chat widget on our [website](https://scale3labs.com),
+	[discord](https://discord.gg/scale3-1013651494068813864) or
+	[email](mailto:contact@scale3labs.com).
+</Accordion>
+
+<Accordion title="Can I migrate my existing blockchain nodes to your service?">
+	Depending on the specifics of your existing setup, migration may be possible.
+	Please contact us to discuss your migration needs and we can determine the
+	feasibility.
+</Accordion>
+
+<Accordion title="Is there a limit to the number of blockchain nodes I can provision through your service?">
+	There might be limits based on the cloud provider's policies and your
+	subscription plan. Please consult our documentation or reach out to our
+	support team for more information.
+</Accordion>
+
+<Accordion title="What happens if I no longer need a blockchain node? Can I easily decommission it?">
+	Yes, you can request to decommission or remove blockchain nodes that you no
+	longer need. We will guide you through the proper process to ensure a clean
+	and secure removal.
+</Accordion>
+
+<Accordion title="What kind of blockchain configurations can I customize when provisioning a node?">
+	We by default allow only a handful customization options based on the inputs
+	that you provide. But in case of advanced configurations like node type,
+	additional capacity, etc, please reachout to us, we are happy to help.
+</Accordion>
+
+<Accordion title="Can I choose to deploy multiple blockchain nodes across different cloud providers for redundancy?">
+	Yes, you can implement a multi-cloud strategy for improved redundancy and
+	availability by deploying nodes across multiple cloud providers.
+</Accordion>
+
+<Accordion title="Can I integrate external applications or services with my deployed blockchain nodes?">
+	Yes, you can integrate external applications and services with your blockchain
+	nodes to build comprehensive solutions. Our service provides a node that has
+	the necessary networking and API capabilities enabled for such integrations.
+</Accordion>
+
+<Accordion title="How do you handle compliance and regulatory requirements for blockchain deployments?">
+	We work with you to ensure that your blockchain deployments adhere to relevant
+	compliance and regulatory requirements.
+</Accordion>
+
+<Accordion title="Can I customize the monitoring and alerting settings for my blockchain nodes?">
+	Yes, you can customize monitoring and alerting settings based on your specific
+	requirements. You are free to use your choice of your monitoring solution.
+</Accordion>
+
+<Accordion title="Is there a trial period or demo available for me to test your service before committing?">
+	We offer trial periods for eligible customers to experience our service
+	firsthand and determine if it meets their needs before making a commitment.
+	Just reach out to us and we will be happy to help.
+</Accordion>
+
+</AccordionGroup>
