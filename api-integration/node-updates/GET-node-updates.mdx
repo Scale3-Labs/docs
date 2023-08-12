@@ -1,0 +1,167 @@
+---
+title: "GET Node Updates"
+api: "GET /node_updates"
+---
+
+<AccordionGroup>
+  <Accordion title="Query Parameters">
+    <ParamField query="name" type="string" optional>
+      Name of the node update
+    </ParamField>
+    <ParamField query="category" type="string" optional>
+      Node update category
+    </ParamField>
+    <ParamField query="chain" type="string" required>
+      Node update chain
+    </ParamField>
+    <ParamField query="description" type="string" optional>
+      Node update description
+    </ParamField>
+    <ParamField query="repo_name" type="string" optional>
+      Name of repository that contains the update code
+    </ParamField>
+    <ParamField query="tag" type="string" optional>
+      Node update tag. The Tag contains the update version
+    </ParamField>
+    <ParamField query="network" type="string" optional>
+      Node update network (mainnet, testnet, devnet)
+    </ParamField>
+    <ParamField query="client" type="string" optional>
+      Node update client depending on the chain. For chains with no client the
+      default value is the chain itself
+    </ParamField>
+    <ParamField query="release_date" type="integer" optional>
+      Release date of the update (unix epoch timestamp)
+    </ParamField>
+    <ParamField query="release_notes_url" type="string" optional>
+      Link to github repository release notes
+    </ParamField>
+    <ParamField query="page_size" type="integer" optional>
+      Size of a single page i.e how many records to send back in the response
+    </ParamField>
+    <ParamField query="page" type="integer" optional>
+      Page number
+    </ParamField>
+  </Accordion>
+</AccordionGroup>
+
+<Accordion title="200 (OK) Response Object Schema">
+    <ResponseField name="result" type="NodeUpdate[]">
+       <Expandable title="Node Update Object Properties" defaultOpen="true">
+        <ResponseField name="name" type="string" required>
+            Name of the node update 
+        </ResponseField>
+        <ResponseField name="category" type="string" required>
+            Node update category
+        </ResponseField>
+        <ResponseField name="chain" type="string" required>
+            Node update chain
+        </ResponseField>
+        <ResponseField name="description" type="string" required>
+            Node update description
+        </ResponseField>
+        <ResponseField name="repo_name" type="string" required>
+            Name of repository that contains the update code
+        </ResponseField>
+        <ResponseField name="tag" type="string" required>
+            Node update tag. The Tag contains the update version
+        </ResponseField>
+        <ResponseField name="network" type="string" required>
+            Node update network (mainnet, testnet, devnet)
+        </ResponseField>
+        <ResponseField name="client" type="string" required>
+            Node update client depending on the chain. For chains with no client the default value is the chain itself
+        </ResponseField>
+        <ResponseField name="release_date" type="integer" required>
+            Release date of the update (unix epoch timestamp) 
+        </ResponseField>
+        <ResponseField name="release_notes_url" type="string" required>
+            Link to github repository release notes
+        </ResponseField>
+        <ResponseField name="build_artifacts" type="BuildArtifact[]" required>
+            <Expandable title="Build Artifact Object Properties" defaultOpen="true">
+            <ResponseField name="type" type="string" required>
+                Build artifact type (docker, genisis or node)
+            </ResponseField>
+            <ResponseField name="url" type="string" required>
+                Node update binary download url
+            </ResponseField>
+            <ResponseField name="os" type="string" optional>
+                Node update binary compatible os
+            </ResponseField>
+            <ResponseField name="md5" type="string" optional>
+                Node update binary md5
+            </ResponseField>
+        </Expandable>
+        </ResponseField>
+       </Expandable>
+    </ResponseField>
+    <ResponseField name="metadata" type="Metadata" required>
+        <Expandable title="Metadata Object Properties" defaultOpen="true">
+            <ResponseField name="page_size" type="integer" required>
+                Size of a single page i.e how many records to send back in the response
+            </ResponseField>
+            <ResponseField name="page" type="integer" required>
+            Page number
+            </ResponseField>
+            <ResponseField name="total_pages" type="integer" required>
+                Total pages with the given page_size
+            </ResponseField>
+        </Expandable>
+    </ResponseField>
+</Accordion>
+<Accordion title="APIError Response Object Schema"> 
+<ResponseField name="error" type="ApiError">
+    <Expandable title="ApiError Object Properties"  defaultOpen="true">
+        <ResponseField name="message" type="string" required >    
+            Error message
+        </ResponseField>
+        <ResponseField name="status" type="integer" required>
+            Http status code
+        </ResponseField>
+        <ResponseField name="inner_errors" type="ApiError[]" optional>
+            Array of errors which led to the error
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+    
+</Accordion>
+<ResponseExample>
+
+```json Sample 200 (OK) Response
+{
+  "result": [
+    {
+      "_id": "64caad9ff235e4337cabb497",
+      "name": "mainnet-v1.6.3",
+      "chain": "sui",
+      "category": "optional",
+      "description": "The upgrade includes new linter warnings for custom transfer/share/freeze functions, support for selective suppression of linter warnings, changes in unit tests handling, a new TransactionKindIn filter for querying transaction blocks, and linter warnings for object transfers.",
+      "repo_name": "sui",
+      "tag": "mainnet-v1.6.3",
+      "network": "mainnet",
+      "client": "sui",
+      "release_date": 1690959709,
+      "release_notes_url": "https://github.com/MystenLabs/sui/releases/tag/mainnet-v1.6.3",
+      "build_artifacts": [],
+      "createdAt": 1691004319,
+      "updatedAt": 1691004319
+    }
+  ],
+  "metadata": {
+    "page": 1,
+    "page_size": 10000,
+    "total_pages": 1
+  }
+}
+```
+
+```json Sample ApiError Response
+{
+  "error": {
+    "message": "Invalid api key unauthorized",
+    "status": 401
+  }
+}
+```
+</ResponseExample>

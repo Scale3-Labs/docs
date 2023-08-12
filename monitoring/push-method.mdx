@@ -28,7 +28,7 @@ Onboarding using the push method offers the most complete view of the health of 
 <img height="200" src="https://miro.medium.com/v2/resize:fit:1400/1*bBX4HESWjrSADOVhNpfmXQ.png" />
 
 - The next screen has the 3-step process for installing the Grafana agent then start shipping metrics to your dashboard.
-<img height="200" src="https://miro.medium.com/v2/resize:fit:1400/1*S-K8c5jxHAwTWKb_Irh8lg.png" />
+ ![](/images/monitor-flow-instr-1.png)
 
 - Login to your node via ssh then run the curl command as shown in the screenshot. In this example, I will be downloading Scale3 CLI by running
 
@@ -45,16 +45,16 @@ chmod a+x installcli.sh
 
 - Next, create the Grafana agent config file. Copy the command and paste it into your terminal. Example below
 
-<img height="200" src="https://miro.medium.com/v2/resize:fit:1400/1*HCfM5NPFj-X0kN3UZc3i8w.png" />
+ ![](/images/monitor-flow-instr-2.png)
 
-- Create an API key, copy and save the key in a notepad as you will need it to start the Grafana agent installation
+- Create an API key if you havent done so before by clicking the **Create API Key** button otherwise this can be skipped
 
-<img height="200" src="https://miro.medium.com/v2/resize:fit:1400/1*lROXblKzPF_2qT9zjCNC1g.png" />
+ ![](/images/monitor-flow-instr-3.png)
 
-- Replace `<API-key-from-previous-step>` with the API key from the previous step then run the final command
+- Run the final command
 
 ```shell
-./installcli.sh -kig 419c00e3-22b3-450f-a192-37823786398
+./installcli.sh -gk 0381c304-15d5-4dfc-8d10-adb60e2fb895
 ```
 
 - Review the Grafana agent configuration file before we start shipping metrics, be sure to type **1** then enter to continue with the installation.
