@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Scale3Labs",
   "api": {
-    "baseUrl":  "https://web-backend.scale3production.com",
+    "baseUrl": "https://web-backend.scale3production.com",
     "auth": {
       "method": "key",
       "name": "x-api-key"
@@ -63,7 +63,8 @@
         "alerting/validator-alerts",
         "alerting/node-health",
         "alerting/network-intelligence",
-        "alerting/node-updates-intelligence"
+        "alerting/node-updates-intelligence",
+        "alerting/silence-grafana-alerts"
       ]
     },
     {
@@ -90,17 +91,17 @@
         "logging/logging-faqs"
       ]
     },
-	{
-		"group": "Nodepilot",
-		"pages": [
-			"nodepilot/introduction",
-			"nodepilot/responsibility-model",
-			"nodepilot/nodepilot-on-gcp",
-			"nodepilot/nodepilot-on-aws",
-			"nodepilot/nodepilot-cost-estimation",
-			"nodepilot/nodepilot-faqs"
-		]
-	  },
+    {
+      "group": "Nodepilot",
+      "pages": [
+        "nodepilot/introduction",
+        "nodepilot/responsibility-model",
+        "nodepilot/nodepilot-on-gcp",
+        "nodepilot/nodepilot-on-aws",
+        "nodepilot/nodepilot-cost-estimation",
+        "nodepilot/nodepilot-faqs"
+      ]
+    },
     {
       "group": "Blockchain Node Setup",
       "pages": [
