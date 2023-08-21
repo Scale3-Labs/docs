@@ -1,0 +1,58 @@
+# How to Silence an Alert in Grafana 10
+
+Silencing an alert in Grafana means temporarily disabling notifications for a specific alert or set of alerts. This can be useful during maintenance, upgrades, or when working on resolving an issue.
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Steps to Silence an Alert](#steps-to-silence-an-alert)
+3. [Conclusion](#conclusion)
+
+## Prerequisites
+
+- Knowledge of the specific alert or alerts you want to silence.
+
+## Steps to Silence an Alert
+
+### 1. **Access the Grafana Dashboard**
+
+   Open Scale3 Autopilot then navigate to the specific node monitoring dashboard.
+
+### 2. **Navigate to the Alerting Section**
+
+   Click on the 'Hamburger menu' icon on the left sidebar, then click on 'Alerting.'
+
+   ![Alt text](image.png)
+
+### 3. **Find the Alert You Want to Silence**
+
+   You can search for the alert by name or filter by state, folder, or tags.
+
+![Alt text](image-1.png)
+### 4. **Silence the Alert**
+
+   - Click on the alert name to open the alert details.
+   - Click the 'Silence' button. This will stop the alert from being evaluated and notifications from being sent.
+
+   ![Alt text](image-2.png)
+
+
+### 5. Choose slience duration**
+
+   In the Slience start and end section, select how long the alert should be silenced for. You may add a note or annotation to document why the alert was paused in the comment section.
+
+   Also add your name in the Created by section then click on the Submit button.
+
+![Alt text](image-3.png)
+
+### 5. **Verify the Alert is Silenced **
+
+   On the Silences page, you should see the alert you just silenced in an 'Active' state. You can unsilence the alert by clicking the 'Unsilence' icon.
+
+![Alt text](image-4.png)
+
+## Conclusion
+
+Silencing alerts in Grafana is a straightforward process that allows you to temporarily disable notifications for specific alerts. This can be particularly useful during maintenance or when addressing known issues.
+
+Always remember to un-pause alerts once the work is complete to ensure that your system continues to be monitored effectively. If you have any specific questions or need further assistance, contact us using the chat icon in-platform or email support@scale3labs.com .
