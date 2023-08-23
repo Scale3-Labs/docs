@@ -98,6 +98,7 @@
         "nodepilot/responsibility-model",
         "nodepilot/nodepilot-on-gcp",
         "nodepilot/nodepilot-on-aws",
+        "nodepilot/nodepilot-on-azure",
         "nodepilot/nodepilot-cost-estimation",
         "nodepilot/nodepilot-faqs"
       ]

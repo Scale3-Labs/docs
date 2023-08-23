@@ -1,0 +1,95 @@
+---
+title: Guide for Azure
+description: This doc will help you setup Nodepilot on Azure Account
+---
+
+Nodepilot makes it easy to setup and maintain a standalone blockchain node on Azure. This guide will help you with the steps that you need to perform for Nodepilot.
+
+# Prerequisites
+
+- An Azure account
+- Azure Virtual Network setup with subnets in desired location
+
+# Create Service Principal
+
+For Nodepilot to be able to crete and manage resources on your Azure account, you need to .
+
+You can create an access key by following the instructions.
+
+<Tabs>
+    <Tab title="Azure Console">
+
+        1. Login to your Azure Account:
+            Log in to your Azure account using the Azure portal: https://portal.azure.com/
+
+        2. Create a Service Principal:
+
+            - In the left-hand menu, select "Azure Active Directory".
+            - Go to "App registrations" and click on "+ New registration".
+            - Fill in the necessary details for your application, such as the name.
+            - Under "Supported account types", choose the appropriate option based on your use case.
+
+        3. Create a Client Secret:
+
+            - After creating the app registration, go to the "Certificates & secrets" section.
+            - Under the "Client secrets" section, click on "+ New client secret".
+            - Add a description, choose an expiration (or leave it never-expiring), and click "Add".
+
+        4. Assign Role (Permissions) to Service Principal:
+
+            - Once the client secret is created, go to the Azure resource (like a resource group or specific resource) you want your application to have access to.
+            - In the resource's "Access control (IAM)" section, click on "+ Add role assignment".
+            - Choose a role that corresponds to the permissions you need. The "Contributor" role is commonly used for managing resources.
+
+        5.  Select a Principal:
+
+            - In the "Add role assignment" window, under "Assign access to", choose "User, group, or service principal".
+            - In the "Select" box, search for and select the app registration (service principal) you created.
+
+        6.  Access Secrets in Your Application:
+
+            - In your application or script, you will use the Service Principal's Application ID (Client ID) and the Client Secret to authenticate.
+            - Use these credentials to authenticate with Azure services like Azure Resource Manager, Azure Key Vault, etc.
+    </Tab>
+    <Tab title="Azure Cli">
+        This step assumes that you have installed and configured Azure CLI on your machine. If not, you can follow the instructions [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+
+
+        1.  List Subscriptions
+            ```bash
+            az account list
+            ```
+            Here, you may see multiple subscriptions, select the one that you want to use for Nodepilot. Copy the subscription ID to be used in the next step.
+        2. Set the Subscription
+            ```bash
+            az account set --subscription="<Subscription ID>"
+            ```
+        3. Create Service Principal
+            ```bash
+            az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<Subscription ID>"
+            ```
+            Here, we are giving contibutor access, but you can restrict the access just to desired services.
+        4. Copy `appId`, `password` and `tenant` from the output and keep it safe. You will need it later.
+    </Tab>
+
+</Tabs>
+
+# Inputs to Scale3 Nodepilot
+
+Nodepilot requires some inputs to run the setup. The following are the inputs that you need to provide:
+
+|      Property      |                Description                |       Example        |                               Comments                               |
+| :----------------: | :---------------------------------------: | :------------------: | :------------------------------------------------------------------: |
+|      Hostname      |            Name of the server             | sui-mainnet-fullnode | This will be used as the hostname of the server and visible on Azure |
+|      Location      |              Azure location               |     West Europe      |             Location where you want to create the server             |
+|      VPC Name      |        Azure Virtual Network Name         |      scale3-vpc      |             VPC Name where you want to create the server             |
+| Blockchain network | Blockchain network to deploy the node for |     sui-mainnet      |                  Supported mainnet, testnet, devnet                  |
+| Service Principal  |         Service Principal Secrets         |          -           |              Keys that you created in the previous step              |
+
+# Resources Provisioned
+
+- Azure Linux VM with 50 GB of OS disk.
+- Standard SSD Disk for storing blockchain data
+- Two Firewalls
+  - Allow SSH from Nodepilot IP
+  - Allow traffic to required ports from anywhere
