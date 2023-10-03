@@ -63,6 +63,7 @@
         "alerting/validator-alerts",
         "alerting/node-health",
         "alerting/network-intelligence",
+        "alerting/node-updates",
         "alerting/node-updates-intelligence",
         "alerting/silence-grafana-alerts"
       ]

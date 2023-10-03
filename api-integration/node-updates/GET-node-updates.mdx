@@ -3,44 +3,66 @@ title: "GET Node Updates"
 api: "GET /node_updates"
 ---
 
-
-  <ParamField query="name" type="string" optional>
-    Name of the node update
-  </ParamField>
-  <ParamField query="category" type="string" optional>
-    Node update category
-  </ParamField>
-  <ParamField query="chain" type="string" required>
-    Node update chain
-  </ParamField>
-  <ParamField query="description" type="string" optional>
-    Node update description
-  </ParamField>
-  <ParamField query="repo_name" type="string" optional>
-    Name of repository that contains the update code
-  </ParamField>
-  <ParamField query="tag" type="string" optional>
-    Node update tag. The Tag contains the update version
-  </ParamField>
-  <ParamField query="network" type="string" optional>
-    Node update network (mainnet, testnet, devnet)
-  </ParamField>
-  <ParamField query="client" type="string" optional>
-    Node update client depending on the chain. For chains with no client the
-    default value is the chain itself
-  </ParamField>
-  <ParamField query="release_date" type="integer" optional>
-    Release date of the update (unix epoch timestamp)
-  </ParamField>
-  <ParamField query="release_notes_url" type="string" optional>
-    Link to github repository release notes
-  </ParamField>
-  <ParamField query="page_size" type="integer" optional>
-    Size of a single page i.e how many records to send back in the response
-  </ParamField>
-  <ParamField query="page" type="integer" optional>
-    Page number
-  </ParamField>
+<ParamField query="name" type="string" optional>
+  Name of the node update
+</ParamField>
+<ParamField query="category" type="string" optional>
+  Node update category
+</ParamField>
+<ParamField query="chain" type="string" required>
+  Node update chain
+</ParamField>
+<ParamField query="description" type="string" optional>
+  Node update description
+</ParamField>
+<ParamField query="repo_name" type="string" optional>
+  Name of repository that contains the update code
+</ParamField>
+<ParamField query="tag" type="string" optional>
+  Node update tag. The Tag contains the update version
+</ParamField>
+<ParamField query="network" type="string" optional>
+  Node update network (mainnet, testnet, devnet)
+</ParamField>
+<ParamField query="client" type="string" optional>
+  Node update client depending on the chain. For chains with no client the default value is the chain itself
+</ParamField>
+<ParamField query="release_date" type="integer" optional>
+  Release date of the update (unix epoch timestamp)
+</ParamField>
+<ParamField query="release_notes_url" type="string" optional>
+  Link to GitHub repository release notes
+</ParamField>
+<ParamField query="version" type="string" optional>
+  Version of the node update
+</ParamField>
+<ParamField query="commit_hash" type="string" optional>
+  Commit hash of the node update
+</ParamField>
+<ParamField query="priority" type="string" optional>
+  Priority level of the node update
+</ParamField>
+<ParamField query="prerequisites" type="array" optional>
+  Array of prerequisites for the node update
+</ParamField>
+<ParamField query="breaking_changes" type="boolean" optional>
+  Boolean indicating if the update has breaking changes
+</ParamField>
+<ParamField query="breaking_change_summary" type="string" optional>
+  Summary of the breaking changes
+</ParamField>
+<ParamField query="upcoming_network_upgrade" type="string" optional>
+  Information about any upcoming network upgrades
+</ParamField>
+<ParamField query="required_for_upcoming_upgrade" type="boolean" optional>
+  Boolean indicating if the update is required for an upcoming network upgrade
+</ParamField>
+<ParamField query="page_size" type="integer" optional>
+  Size of a single page i.e how many records to send back in the response
+</ParamField>
+<ParamField query="page" type="integer" optional>
+  Page number
+</ParamField>
 
 
 <Accordion title="200 (OK) Response Object Schema">
@@ -94,6 +116,30 @@ api: "GET /node_updates"
         </ResponseField>
        </Expandable>
     </ResponseField>
+    <ResponseField name="version" type="string" optional>
+    Version of the node update
+  </ResponseField>
+  <ResponseField name="commit_hash" type="string" optional>
+    Commit hash of the node update
+  </ResponseField>
+  <ResponseField name="priority" type="string" optional>
+    Priority level of the node update
+  </ResponseField>
+  <ResponseField name="prerequisites" type="array" optional>
+    Array of prerequisites for the node update
+  </ResponseField>
+  <ResponseField name="breaking_changes" type="boolean" optional>
+    Boolean indicating if the update has breaking changes
+  </ResponseField>
+  <ResponseField name="breaking_change_summary" type="string" optional>
+    Summary of the breaking changes
+  </ResponseField>
+  <ResponseField name="upcoming_network_upgrade" type="string" optional>
+    Information about any upcoming network upgrades
+  </ResponseField>
+  <ResponseField name="required_for_upcoming_upgrade" type="boolean" optional>
+    Boolean indicating if the update is required for an upcoming network upgrade
+  </ResponseField>
     <ResponseField name="metadata" type="Metadata" required>
         <Expandable title="Metadata Object Properties" defaultOpen="true">
             <ResponseField name="page_size" type="integer" required>
@@ -143,7 +189,15 @@ api: "GET /node_updates"
       "release_notes_url": "https://github.com/MystenLabs/sui/releases/tag/mainnet-v1.6.3",
       "build_artifacts": [],
       "createdAt": 1691004319,
-      "updatedAt": 1691004319
+      "updatedAt": 1691004319,
+      "version": "1.6.3",
+      "commit_hash": "abc123",
+      "priority": "High",
+      "prerequisites": ["Previous version installed"],
+      "breaking_changes": false,
+      "breaking_change_summary": "No breaking changes",
+      "upcoming_network_upgrade": "None",
+      "required_for_upcoming_upgrade": false
     }
   ],
   "metadata": {
