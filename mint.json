@@ -1,169 +1,164 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Scale3Labs",
-  "api": {
-    "baseUrl": "https://web-backend.scale3production.com",
-    "auth": {
-      "method": "key",
-      "name": "x-api-key"
-    }
-  },
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#BE63FF",
-    "light": "#D9A4FF",
-    "dark": "#886bfe",
-    "anchors": {
-      "from": "#886BFE",
-      "to": "#BE63FF"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Log In",
-      "url": "https://www.scale3labs.com/signin"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Sign Up",
-    "url": "https://www.scale3labs.com/signup"
-  },
-  "anchors": [
-    {
-      "name": "Blog",
-      "icon": "medium",
-      "url": "https://medium.com/scale3-labs"
-    },
-    {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.com/invite/h74CkNv4h9"
-    },
-    {
-      "name": "Contact Us",
-      "icon": "envelope",
-      "url": "mailto:contact@scale3labs.com"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Home",
-      "pages": [
-        "introduction"
-      ]
-    },
-    {
-      "group": "Alerting",
-      "pages": [
-        "alerting/introduction",
-        "alerting/validator-alerts",
-        "alerting/node-health",
-        "alerting/network-intelligence",
-        "alerting/node-updates",
-        "alerting/node-updates-intelligence",
-        "alerting/silence-grafana-alerts"
-      ]
-    },
-    {
-      "group": "Alert Channels",
-      "pages": [
-        "channels/introduction",
-        "channels/email",
-        "channels/slack",
-        "channels/pagerduty"
-      ]
-    },
-    {
-      "group": "Monitoring",
-      "pages": [
-        "monitoring/introduction",
-        "monitoring/push-method",
-        "monitoring/push-method-k8s"
-      ]
-    },
-    {
-      "group": "Logging",
-      "pages": [
-        "logging/getting-started",
-        "logging/logging-faqs"
-      ]
-    },
-    {
-      "group": "Nodepilot",
-      "pages": [
-        "nodepilot/introduction",
-        "nodepilot/responsibility-model",
-        "nodepilot/nodepilot-on-gcp",
-        "nodepilot/nodepilot-on-aws",
-        "nodepilot/nodepilot-on-azure",
-        "nodepilot/nodepilot-cost-estimation",
-        "nodepilot/nodepilot-faqs"
-      ]
-    },
-    {
-      "group": "Blockchain Node Setup",
-      "pages": [
-        "node-setup/introduction",
-        "node-setup/run-sui-fullnode-manually",
-        {
-          "group": "Sui Wizard",
-          "pages": [
-            "node-setup/sui-wizard/sui-wizard-introduction",
-            "node-setup/sui-wizard/running-a-sui-fullnode",
-            "node-setup/sui-wizard/running-a-sui-validator",
-            "node-setup/sui-wizard/sui-node-operations",
-            "node-setup/sui-wizard/sui-node-helper-faqs"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Node Inventory Management",
-      "pages": [
-        "node-inventory/introduction"
-      ]
-    },
-    {
-      "group": "API Integration",
-      "pages": [
-        "api-integration/introduction",
-        {
-          "group": "Node Updates",
-          "pages": [
-            "api-integration/node-updates/GET-node-updates"
-          ]
-        },
-        {
-          "group": "Network Feed",
-          "pages": [
-            "api-integration/network-feed/GET-network-feed"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Command Line Interface",
-      "pages": [
-        "command-line-interface/introduction",
-        "command-line-interface/install-Scale3-Cli",
-        "command-line-interface/uninstall-Scale3-Cli"
-      ]
-    },
-    {
-      "group": "Node Checker",
-      "pages": [
-        "nodechecker/sui-node-checker",
-        "nodechecker/aptos-node-checker"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/Scale3Labs",
-    "discord": "https://discord.com/invite/h74CkNv4h9",
-    "website": "https://www.scale3labs.com/"
-  }
+	"$schema": "https://mintlify.com/schema.json",
+	"name": "Scale3Labs",
+	"api": {
+		"baseUrl": "https://web-backend.scale3production.com",
+		"auth": {
+			"method": "key",
+			"name": "x-api-key"
+		}
+	},
+	"logo": {
+		"dark": "/logo/dark.svg",
+		"light": "/logo/light.svg"
+	},
+	"favicon": "/favicon.png",
+	"colors": {
+		"primary": "#BE63FF",
+		"light": "#D9A4FF",
+		"dark": "#886bfe",
+		"anchors": {
+			"from": "#886BFE",
+			"to": "#BE63FF"
+		}
+	},
+	"topbarLinks": [
+		{
+			"name": "Log In",
+			"url": "https://www.scale3labs.com/signin"
+		}
+	],
+	"topbarCtaButton": {
+		"name": "Sign Up",
+		"url": "https://www.scale3labs.com/signup"
+	},
+	"anchors": [
+		{
+			"name": "Blog",
+			"icon": "medium",
+			"url": "https://medium.com/scale3-labs"
+		},
+		{
+			"name": "Community",
+			"icon": "discord",
+			"url": "https://discord.com/invite/h74CkNv4h9"
+		},
+		{
+			"name": "Contact Us",
+			"icon": "envelope",
+			"url": "mailto:contact@scale3labs.com"
+		}
+	],
+	"navigation": [
+		{
+			"group": "Home",
+			"pages": ["introduction"]
+		},
+		{
+			"group": "Alerting",
+			"pages": [
+				"alerting/introduction",
+				"alerting/validator-alerts",
+				"alerting/node-health",
+				"alerting/network-intelligence",
+				"alerting/node-updates",
+				"alerting/node-updates-intelligence",
+				"alerting/silence-grafana-alerts"
+			]
+		},
+		{
+			"group": "Alert Channels",
+			"pages": [
+				"channels/introduction",
+				"channels/email",
+				"channels/slack",
+				"channels/pagerduty"
+			]
+		},
+		{
+			"group": "Monitoring",
+			"pages": [
+				"monitoring/introduction",
+				"monitoring/push-method",
+				"monitoring/push-method-k8s"
+			]
+		},
+		{
+			"group": "Logging",
+			"pages": ["logging/getting-started", "logging/logging-faqs"]
+		},
+		{
+			"group": "Nodepilot",
+			"pages": [
+				"nodepilot/introduction",
+				"nodepilot/responsibility-model",
+				"nodepilot/nodepilot-on-gcp",
+				"nodepilot/nodepilot-on-aws",
+				"nodepilot/nodepilot-on-azure",
+				{
+					"group": "Supported Chains",
+					"pages": [
+						"nodepilot/supported-chains/nodepilot-flow"
+					]
+				},
+				"nodepilot/nodepilot-cost-estimation",
+				"nodepilot/nodepilot-faqs"
+			]
+		},
+		{
+			"group": "Blockchain Node Setup",
+			"pages": [
+				"node-setup/introduction",
+				"node-setup/run-sui-fullnode-manually",
+				{
+					"group": "Sui Wizard",
+					"pages": [
+						"node-setup/sui-wizard/sui-wizard-introduction",
+						"node-setup/sui-wizard/running-a-sui-fullnode",
+						"node-setup/sui-wizard/running-a-sui-validator",
+						"node-setup/sui-wizard/sui-node-operations",
+						"node-setup/sui-wizard/sui-node-helper-faqs"
+					]
+				}
+			]
+		},
+		{
+			"group": "Node Inventory Management",
+			"pages": ["node-inventory/introduction"]
+		},
+		{
+			"group": "API Integration",
+			"pages": [
+				"api-integration/introduction",
+				{
+					"group": "Node Updates",
+					"pages": ["api-integration/node-updates/GET-node-updates"]
+				},
+				{
+					"group": "Network Feed",
+					"pages": ["api-integration/network-feed/GET-network-feed"]
+				}
+			]
+		},
+		{
+			"group": "Command Line Interface",
+			"pages": [
+				"command-line-interface/introduction",
+				"command-line-interface/install-Scale3-Cli",
+				"command-line-interface/uninstall-Scale3-Cli"
+			]
+		},
+		{
+			"group": "Node Checker",
+			"pages": [
+				"nodechecker/sui-node-checker",
+				"nodechecker/aptos-node-checker"
+			]
+		}
+	],
+	"footerSocials": {
+		"twitter": "https://twitter.com/Scale3Labs",
+		"discord": "https://discord.com/invite/h74CkNv4h9",
+		"website": "https://www.scale3labs.com/"
+	}
 }
