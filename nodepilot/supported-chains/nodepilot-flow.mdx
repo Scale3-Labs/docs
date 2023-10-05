@@ -1,0 +1,75 @@
+---
+title: Nodepilot FLOW Guide
+sidebarTitle: Nodepilot FLOW Guide
+---
+
+We currently support the following FLOW network node types:
+
+- Access Node
+- Observer Node (Light Node)
+
+<Info>
+	Support of other node types is in progress. Please contact us if you need a
+	specific node type.
+</Info>
+
+Wondering what type of node to run for your needs? Checkout the decision tree [here](https://developers.flow.com/references/run-and-secure/nodes).
+
+To know about them in detail heres the [documentation](https://developers.flow.com/references/run-and-secure/node-operation/node-roles).
+
+# Requirements
+
+## Hardware
+
+Follow the document to know about the minimum hardware requirements for running a node of any type.
+
+https://developers.flow.com/references/run-and-secure/node-operation/node-provisioning
+
+## Tokens
+
+Running a node requires you to stake a certain amount of tokens. The amount of tokens required depends on the type of node you are running. You can find the details [here](https://developers.flow.com/references/run-and-secure/node-operation/node-roles).
+
+| Node Type    | Tokens Required |
+| :----------- | --------------: |
+| Access       |        100 FLOW |
+| Observer     |               - |
+| Collection   |    250,000 FLOW |
+| Consensus    |    500,000 FLOW |
+| Execution    |  1,250,000 FLOW |
+| Verification |    135,000 FLOW |
+
+# Access Node
+
+To run an access node, it is recommended to have a minimum of **16GB RAM** and **4 CPU cores**. To store the blockchain data on the node, it is recommended to have atleast **750GB of disk** space.
+
+<Note>
+	Access nodes are required to stake **100 FLOW** to be a confirmed node
+	operator. However, since an access node does not participate in block
+	production, it does not receive any staking rewards.
+</Note>
+
+## Setup
+
+Nodepilot will help with provisioning and configuring the node. It can also help you setup logging and monitoring for the node.
+
+Your access not will not start **until you stake 100 FLOW tokens** on the node address.
+
+## Staking
+
+Follow the process mentioned in official documentation to setup and stake FLOW tokens using Flow Port.
+
+Once you have followed Step 2 & Step 3, wait for the epoch that confirms your stake. You can check Flow Port for an ETA for your node whitelisting.
+
+Once your node address is whitelisted, you can start your node by running the following command:
+
+```bash
+sudo service restart flow-go
+```
+
+Wait for few minutes, and your node should be up and start syncing with the network.
+
+To check logs of your node, run the following command:
+
+```bash
+sudo journalctl -fu flow-go
+```
