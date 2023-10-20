@@ -30,7 +30,7 @@ Follow the instructions to create a service account key for your project.
 
             Click create and continue to the next step.
 
-        3.  On the next page, you have to grant permissions to the newly created service account. Assign the role `Compute Instance Admin (v1)` to the service account and select it. Click continue and you don't need to grant access so complete the process by clicking Done.
+        3.  On the next page, you have to grant permissions to the newly created service account. Assign the role `Compute Instance Admin (v1)` & `Compute Security Admin` to the service account and select it. Click continue and you don't need to grant access so complete the process by clicking Done.
 
         4.  Now you need to create keys. On the service account UI, search for the newly created service account my searching for `scale3-nodepilot` and click on the service account email.
 
@@ -56,6 +56,10 @@ Follow the instructions to create a service account key for your project.
             gcloud projects add-iam-policy-binding $SCALE3_GCP_PROJECT_ID \
                 --member="serviceAccount:scale3-nodepilot@$SCALE3_GCP_PROJECT_ID.iam.gserviceaccount.com" \
                 --role="roles/compute.instanceAdmin.v1"
+
+            gcloud projects add-iam-policy-binding $SCALE3_GCP_PROJECT_ID \
+                --member="serviceAccount:scale3-nodepilot@$SCALE3_GCP_PROJECT_ID.iam.gserviceaccount.com" \
+                --role="roles/compute.securityAdmin"
             ```
         4. Download service account key
             ```bash
