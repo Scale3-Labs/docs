@@ -4,7 +4,7 @@ title: Cost Estimation
 
 ## Standalone Server
 
-Nodepilot helps in provisioning a standalone node on the cloud of your choice.
+Nodepilot helps in provisioning a standalone node on the platform of your choice.
 
 ### Sui
 
@@ -16,13 +16,13 @@ As per the official documentation for a Sui full node its recommended to have mi
 - Memory: 128 GB
 - Disk: 4 TB NVMe
 
-|   Provider   |  Server Type   | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) | Monthly Cost ($) |
-| :----------: | :------------: | :-------------: | :--------: | :----------: | :----------: | :--------------: |
-|     AWS      |   r6a.xlarge   |     662.26      |    4000    |     GP3      |     320      |      982.26      |
-|     GCP      | n2-highmem-16  |     765.12      |    4000    | Balanced SSD |     400      |     1165.12      |
-|    Azure     |   EC16as v5    |     659.92      |    4096    | Standard SSD |    307.20    |      967.12      |
-| DigitalOcean | m-16vcpu-128gb |     672.00      |    4000    |   Default    |     400      |     1072.00      |
-|   Latitude   | c3.medium.x86  |       367       |  1900 x2   |     NVMe     |   included   |       367        |
+|   Provider   |  Server Type   | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) |                                         Monthly Cost ($)                                          |
+| :----------: | :------------: | :-------------: | :-------: | :----------: | :----------: | :-----------------------------------------------------------------------------------------------: |
+|     AWS      |   r6a.xlarge   |     666.26      |   4000    |     GP3      |    400.00    |     [1066.26](https://calculator.aws/#/estimate?id=ee979e12245ff37ca2be141c5aea0938ad35f6f9)      |
+|     GCP      | n2-highmem-16  |     695.01      |   4000    | Balanced SSD |    440.00    | [1,135.01](https://cloud.google.com/products/calculator/#id=c7c15d25-5a25-4133-ac1f-87c8fabc1e03) |
+|    Azure     |   EC16as v5    |     659.92      |   4096    | Standard SSD |    307.20    |                  [967.12](https://azure.com/e/73021f4d1540424da67fb8f799f6a81a)                   |
+| DigitalOcean | m-16vcpu-128gb |     672.00      |   4000    |   Default    |     400      |                                              1072.00                                              |
+|   Latitude   | c3.medium.x86  |       367       |  1900 x2  |     NVMe     |   included   |                                                372                                                |
 
 <Note>
 	The costs estimation was based on Americas region and may vary user to user.
@@ -45,9 +45,26 @@ As per the official documentation for a Ethereum full node its recommended to ha
 - Memory: 16 GB
 - Disk: 2 TB NVMe
 
-|   Provider   |  Server Type  | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) | Monthly Cost ($) |
-| :----------: | :-----------: | :-------------: | :--------: | :----------: | :----------: | :--------------: |
-|     AWS      |  m6a.xlarge   |     126.14      |    2000    |     GP3      |     160      |      286.14      |
-|     GCP      | n2-standard-4 |     140.79      |    2000    | Balanced SSD |     200      |      340.79      |
-|    Azure     |   DC4as v5    |     125.56      |    2048    | Standard SSD |    153.60    |      279.16      |
-| DigitalOcean | g-4vcpu-16gb  |     126.00      |    2000    |   Default    |     200      |      326.00      |
+|   Provider   |   Server Type   | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) |                                        Monthly Cost ($)                                         |
+| :----------: | :-------------: | :-------------: | :-------: | :----------: | :----------: | :---------------------------------------------------------------------------------------------: |
+|     AWS      |   c6a.2xlarge   |     227.38      |   2000    |     GP3      |     160      |     [387.38](https://calculator.aws/#/estimate?id=b51da113ad6fd3a95a9a1d931d2853cf77e098cb)     |
+|     GCP      |  c3d-highcpu-8  |     224.39      |   2000    | Balanced SSD |     220      | [444.39](https://cloud.google.com/products/calculator/#id=947aa446-e85b-4351-9205-6bcdaa0efdda) |
+|    Azure     | Standard_F8s_v2 |     246.74      |   2048    | Standard SSD |    153.60    |                 [400.34](https://azure.com/e/a5d0d5046374439497588dda8040d8be)                  |
+| DigitalOcean |  g-4vcpu-16gb   |     126.00      |   2000    |   Default    |     200      |                                             326.00                                              |
+|   Latitude   |  c2.large.x86   |     285.00      |   2000    |     NVMe     |   included   |                                             285.00                                              |
+
+### Avalanche
+
+Based on the official [documentation](https://docs.avax.network/nodes/run/node-manually#hardware-and-os-requirements) for a AvalancheGo full node its recommended to have the following:
+
+- CPU: 4 cores or 8 vCPUs
+- Memory: 16 GB
+- Disk: 1 TB SSD
+
+|   Provider   |   Server Type   | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) |                                        Monthly Cost ($)                                         |
+| :----------: | :-------------: | :-------------: | :-------: | :----------: | :----------: | :---------------------------------------------------------------------------------------------: |
+|     AWS      |   c6a.2xlarge   |     227.38      |   1000    |     GP3      |      80      |     [307.38](https://calculator.aws/#/estimate?id=00a0e331b796c5d4f965270b3941c12491c1a596)     |
+|     GCP      |  c3d-highcpu-8  |     224.39      |   1000    | Balanced SSD |    110.00    | [334.39](https://cloud.google.com/products/calculator/#id=080e71a3-af23-4656-9142-3e3921edf76a) |
+|    Azure     | Standard_F8s_v2 |     $290.54     |   1024    | Standard SSD |    76.80     |                 [367.34](https://azure.com/e/6a35cf37833c4777b2b5cfe6e02f750d)                  |
+| DigitalOcean |       c-8       |     168.00      |   1000    |   Default    |    100.00    |                                             268.00                                              |
+|   Latitude   |  s2.small.x86   |     248.00      |   1000    |     NVMe     |   included   |                                             248.00                                              |
