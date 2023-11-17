@@ -35,6 +35,7 @@ You can create an access key by following the instructions.
             - After creating the app registration, go to the "Certificates & secrets" section on the left.
             - Under the "Client secrets" section, click on "+ New client secret".
             - Add a description, choose an expiration, and click "Add".
+            - Copy the client secret value before leaving the page. You will need it later.
 
         4. Assign Role (Permissions) to Service Principal:
 
@@ -44,7 +45,9 @@ You can create an access key by following the instructions.
             - In "Priviledged administrator roles" tab, select "Contributor" role, click next.
             - Select members, search for the app registration (service principal) you created, and review and assign.
 
-        5. Copy `appId`, `password` and `tenant` from the output and keep it safe. You will need it later.
+        5. To get the app id and tenant id, open the app registration overview page, you will see the app id and tenant id there.
+
+        6. To find the subscription id, you need to open the subscription page, you will see the subscription id there. Make sure to use the same subscription that you used in assigning the role to the service principal.
 
     </Tab>
     <Tab title="Azure Cli">
