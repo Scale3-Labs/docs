@@ -27,29 +27,25 @@ You can create an access key by following the instructions.
             - In the left-hand menu, select "Azure Active Directory".
             - Go to "App registrations" and click on "+ New registration".
             - Fill in the necessary details for your application, such as the name.
-            - Under "Supported account types", choose the appropriate option based on your use case.
+            - Under "Supported account types", choose "Accounts in this organizational directory only (Default Directory only - Single tenant)"
+            - Click "Register" to create the app registration.
 
         3. Create a Client Secret:
 
-            - After creating the app registration, go to the "Certificates & secrets" section.
+            - After creating the app registration, go to the "Certificates & secrets" section on the left.
             - Under the "Client secrets" section, click on "+ New client secret".
-            - Add a description, choose an expiration (or leave it never-expiring), and click "Add".
+            - Add a description, choose an expiration, and click "Add".
 
         4. Assign Role (Permissions) to Service Principal:
 
-            - Once the client secret is created, go to the Azure resource (like a resource group or specific resource) you want your application to have access to.
-            - In the resource's "Access control (IAM)" section, click on "+ Add role assignment".
-            - Choose a role that corresponds to the permissions you need. The "Contributor" role is commonly used for managing resources.
+            - Once the client secret is created, go to the Azure resource group you want your application to have access to.
+            If you don't have a Resource Group, create one on the Azure portal [here](https://portal.azure.com/#create/Microsoft.ResourceGroup). Note down the Resource Group name, Subscription Name and Region.
+            - In the resource group's "Access control (IAM)" section, click on "Add role assignment".
+            - In "Priviledged administrator roles" tab, select "Contributor" role, click next.
+            - Select members, search for the app registration (service principal) you created, and review and assign.
 
-        5.  Select a Principal:
+        5. Copy `appId`, `password` and `tenant` from the output and keep it safe. You will need it later.
 
-            - In the "Add role assignment" window, under "Assign access to", choose "User, group, or service principal".
-            - In the "Select" box, search for and select the app registration (service principal) you created.
-
-        6.  Access Secrets in Your Application:
-
-            - In your application or script, you will use the Service Principal's Application ID (Client ID) and the Client Secret to authenticate.
-            - Use these credentials to authenticate with Azure services like Azure Resource Manager, Azure Key Vault, etc.
     </Tab>
     <Tab title="Azure Cli">
         This step assumes that you have installed and configured Azure CLI on your machine. If not, you can follow the instructions [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
@@ -78,18 +74,23 @@ You can create an access key by following the instructions.
 
 Nodepilot requires some inputs to run the setup. The following are the inputs that you need to provide:
 
-|      Property      |                Description                |       Example        |                               Comments                               |
-| :----------------: | :---------------------------------------: | :------------------: | :------------------------------------------------------------------: |
-|      Hostname      |            Name of the server             | sui-mainnet-fullnode | This will be used as the hostname of the server and visible on Azure |
-|      Location      |              Azure location               |     West Europe      |             Location where you want to create the server             |
-|      VPC Name      |        Azure Virtual Network Name         |      scale3-vpc      |             VPC Name where you want to create the server             |
-| Blockchain network | Blockchain network to deploy the node for |     sui-mainnet      |                  Supported mainnet, testnet, devnet                  |
-| Service Principal  |         Service Principal Secrets         |          -           |              Keys that you created in the previous step              |
+|         Property         |                Description                |       Example        |                               Comments                               |
+| :----------------------: | :---------------------------------------: | :------------------: | :------------------------------------------------------------------: |
+|         Hostname         |            Name of the server             | sui-mainnet-fullnode | This will be used as the hostname of the server and visible on Azure |
+|         Location         |              Azure location               |     West Europe      |             Location where you want to create the server             |
+|         VPC Name         |        Azure Virtual Network Name         |      scale3-vpc      |             VPC Name where you want to create the server             |
+|    VPC Resource Group    | Azure Virtual Network Resource Group Name |    scale3-vpc-rg     |                      Resource Group of the VPC                       |
+|       Subnet Name        | Azure Virtual Network Subnet Name to use  |      scale3-sub      |           Subnet Name where you want to create the server            |
+|    Blockchain network    | Blockchain network to deploy the node for |     sui-mainnet      |                  Supported mainnet, testnet, devnet                  |
+| Service Principal App Id |            App Registration ID            |          -           |              Application (client) ID of the Application              |
+|      Client Secret       |        Secret value of Application        |          -           |        Application Client secret value of the registered app         |
+|          Tenant          |              Tenant ID value              |          -           |                    Tenant ID of the Azure account                    |
+|     Subscription ID      |       Azure billing Subscription ID       |          -           |                 Subscription ID of the Azure account                 |
 
 # Resources Provisioned
 
 - Azure Linux VM with 50 GB of OS disk.
 - Standard SSD Disk for storing blockchain data
-- Two Firewalls
-  - Allow SSH from Nodepilot IP
-  - Allow traffic to required ports from anywhere
+- Firewall rules to allow traffic to node
+  - Allow SSH from Nodepilot IPs.
+  - Allow traffic to required ports from anywhere.
