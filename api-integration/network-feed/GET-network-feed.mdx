@@ -4,12 +4,50 @@ description: "This endpoint allows you to query our network intelligence feed fo
 api: "GET /feed"
 
 ---
+
+### Utilizing Query Parameters with GET Network Feed
+
+Similar to our 'GET Node Updates' endpoint, the 'GET Network Feed' also supports various query parameters for advanced search capabilities. For a detailed guide on using query parameters, please refer to the [GET Node Updates documentation](https://scale3labs.com/docs/api-integration/node-updates/GET-node-updates). Below are specific examples tailored for the 'GET Network Feed' endpoint.
+
+#### Examples of Query Parameters for Network Feed
+
+1. **Filtering by Label and Chain:**
+   Retrieve network feeds tagged as 'announcement' for the 'Ethereum' chain.
+   ```http
+   GET /network-feed?labels=announcement&chain=eth
+
+2. **Pagination and Network Specific Feed:**
+Get the second page of feeds for the 'mainnet' network, showing 5 records per page.
+    ```http
+    GET /network-feed?network=mainnet&page=2&page_size=5
+
+A complete list of supported parameters for the 'GET Network Feed' endpoint is provided below.
   <ParamField query="labels" type="string[]" optional>
     Type of feed. This can contain (announcement, general information, time
     sensitive, software upgrade, problem and needs action)
   </ParamField>
   <ParamField query="chain" type="string" required>
-    Network feed chain. Currently supported chains values are (aptos,atom,avax,base,dot,eth,flow,harmony,near,op,polygon,rocketpool,sol,sui)
+    Network feed chain. Currently supported chains values are (  "aptos",
+  "arb",
+  "atom",
+  "avax",
+  "base",
+  "celo",
+  "dot",
+  "eth",
+  "flow",
+  "harmony",
+  "kava",
+  "mina",
+  "near",
+  "op",
+  "polygon",
+  "sei",
+  "sol",
+  "stx",
+  "sui",
+  "vet",
+  "xlm")
   </ParamField>
   <ParamField query="event" type="string" optional>
     Title of the network feed event
@@ -21,7 +59,39 @@ api: "GET /feed"
     Network feed network (mainnet, testnet, devnet)
   </ParamField>
   <ParamField query="clients" type="string[]" optional>
-    Array of clients this feed corresponds to depending on the chain
+    Array of clients this feed corresponds to depending on the chain. Currently supported clients include: (
+  "aptos",
+  "atom",
+  "avalanchego",
+  "base",
+  "besu",
+  "bor",
+  "celo",
+  "flow",
+  "gaia",
+  "geth",
+  "harmony",
+  "heimdall",
+  "horizon",
+  "jito",
+  "kava",
+  "lighthouse",
+  "lodestar",
+  "mina",
+  "near",
+  "nethermind",
+  "nimbus",
+  "nitro",
+  "optimism",
+  "polkadot",
+  "polygon",
+  "rocketpool",
+  "sei",
+  "solana",
+  "stacks",
+  "sui",
+  "teku",
+  "thor") 
   </ParamField>
   <ParamField query="additional_info_url" type="string" optional>
     Link to additional information about the feed
@@ -53,7 +123,7 @@ api: "GET /feed"
         Network feed network (mainnet, testnet, devnet)
         </ResponseField>
         <ResponseField name="clients" type="string[]" required>
-            Array of clients this feed corresponds to depending on the chain
+            Array of clients this feed corresponds to depending on the chain. 
         </ResponseField>
         <ResponseField name="additional_info_url" type="string" required>
         Link to additional information about the feed
