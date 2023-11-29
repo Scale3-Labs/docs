@@ -5,6 +5,27 @@ api: "GET /node_updates"
 
 ---
 
+### Using Query Parameters with GET Node Updates
+
+To enhance your experience with our 'GET Node Updates' endpoint, you can use various query parameters provided by the [api-query-params](https://www.npmjs.com/package/api-query-params) library. These parameters allow for advanced filtering, sorting, and pagination, helping you tailor the response to your specific needs. Below are examples demonstrating how to effectively utilize these features.
+
+#### Examples of Query Parameters
+
+1. **Filtering by Chain and Category with Sorting:**
+   Fetch updates for Ethereum mainnet in the, sorted by the release date and priority.
+   ```http
+   GET /node-updates?chain=eth&network=mainnet&breaking_changes=true&sort=priority,-release_date
+
+2. **Pagination and Selective Fields::**
+   Retrieve the second page of updates, showing 10 records per page, displaying only name, version, and release date.
+   ```http 
+   GET /node-updates?page=2&page_size=10&fields=name,version,release_date
+
+Check out the [api-query-params](https://www.npmjs.com/package/api-query-params) documentation for more information on how to use these query parameters.
+
+For any questions or feedback regarding the use of query parameters with our API, feel free to reach out to our support team at support@scale3labs.com.
+
+The complete list of query parameters supported by the 'GET Node Updates' endpoint is provided below.
 <ParamField query="name" type="string" optional>
   Name of the node update
 </ParamField>
@@ -12,7 +33,27 @@ api: "GET /node_updates"
   Node update category
 </ParamField>
 <ParamField query="chain" type="string" required>
-  Node update chain
+  Node update chain. Supported chains include: (  "aptos",
+  "arb",
+  "atom",
+  "avax",
+  "base",
+  "celo",
+  "dot",
+  "eth",
+  "flow",
+  "harmony",
+  "kava",
+  "mina",
+  "near",
+  "op",
+  "polygon",
+  "sei",
+  "sol",
+  "stx",
+  "sui",
+  "vet",
+  "xlm")
 </ParamField>
 <ParamField query="description" type="string" optional>
   Node update description
@@ -27,7 +68,39 @@ api: "GET /node_updates"
   Node update network (mainnet, testnet, devnet)
 </ParamField>
 <ParamField query="client" type="string" optional>
-  Node update client depending on the chain. For chains with no client the default value is the chain itself
+  Node update client depending on the chain. For chains with no client the default value is the chain itself. Supported clients include: (
+  "aptos",
+  "atom",
+  "avalanchego",
+  "base",
+  "besu",
+  "bor",
+  "celo",
+  "flow",
+  "gaia",
+  "geth",
+  "harmony",
+  "heimdall",
+  "horizon",
+  "jito",
+  "kava",
+  "lighthouse",
+  "lodestar",
+  "mina",
+  "near",
+  "nethermind",
+  "nimbus",
+  "nitro",
+  "optimism",
+  "polkadot",
+  "polygon",
+  "rocketpool",
+  "sei",
+  "solana",
+  "stacks",
+  "sui",
+  "teku",
+  "thor")
 </ParamField>
 <ParamField query="release_date" type="integer" optional>
   Release date of the update (unix epoch timestamp)
