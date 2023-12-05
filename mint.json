@@ -52,7 +52,9 @@
 	"navigation": [
 		{
 			"group": "Home",
-			"pages": ["introduction"]
+			"pages": [
+				"introduction"
+			]
 		},
 		{
 			"group": "Alerting",
@@ -63,7 +65,8 @@
 				"alerting/network-intelligence",
 				"alerting/node-updates",
 				"alerting/node-updates-intelligence",
-				"alerting/silence-grafana-alerts"
+				"alerting/silence-grafana-alerts",
+				"alerting/alert-configuration"
 			]
 		},
 		{
@@ -85,7 +88,10 @@
 		},
 		{
 			"group": "Logging",
-			"pages": ["logging/getting-started", "logging/logging-faqs"]
+			"pages": [
+				"logging/getting-started",
+				"logging/logging-faqs"
+			]
 		},
 		{
 			"group": "Nodepilot",
@@ -124,7 +130,9 @@
 		},
 		{
 			"group": "Node Inventory Management",
-			"pages": ["node-inventory/introduction"]
+			"pages": [
+				"node-inventory/introduction"
+			]
 		},
 		{
 			"group": "API Integration",
@@ -132,11 +140,15 @@
 				"api-integration/introduction",
 				{
 					"group": "Node Updates",
-					"pages": ["api-integration/node-updates/GET-node-updates"]
+					"pages": [
+						"api-integration/node-updates/GET-node-updates"
+					]
 				},
 				{
 					"group": "Network Feed",
-					"pages": ["api-integration/network-feed/GET-network-feed"]
+					"pages": [
+						"api-integration/network-feed/GET-network-feed"
+					]
 				}
 			]
 		},
