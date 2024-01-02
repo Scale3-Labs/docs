@@ -22,7 +22,7 @@ As per the official documentation for a Sui full node its recommended to have mi
 |     GCP      | n2-highmem-16  |     695.01      |   4000    | Balanced SSD |    440.00    | [1135.01](https://cloud.google.com/products/calculator/#id=c7c15d25-5a25-4133-ac1f-87c8fabc1e03) |
 |    Azure     |   EC16as v5    |     659.92      |   4096    | Standard SSD |    307.20    |                  [967.12](https://azure.com/e/73021f4d1540424da67fb8f799f6a81a)                  |
 | DigitalOcean | m-16vcpu-128gb |     672.00      |   4000    |   Default    |     400      |                                             1072.00                                              |
-|   Latitude   | c3.medium.x86  |     367.00      |  1900 x2  |     NVMe     |   included   |                                              372.00                                              |
+|   Latitude   | c3.medium.x86  |     367.00      |  1900 x2  |     NVMe     |   included   |                                              388.00                                              |
 
 <Note>
 	The costs estimation was based on Americas region and may vary user to user.
@@ -83,3 +83,20 @@ Based on the official [documentation](https://wiki.polygon.technology/docs/pos/v
 |   GCP    | e2-standard-32 |       887       |   5000    | Balanced SSD |    550.00    | [1437.00](https://cloud.google.com/products/calculator/#id=e0cbe41f-0db4-4ee9-b2eb-01c8fcbf46ca) |
 |  Azure   |    F32s v2     |     987.69      |   8192    | Standard SSD |    614.40    |                 [1602.09](https://azure.com/e/860e5698810f4438bf5c9f8429ecb8b7)                  |
 | Latitude | c3.medium.x86  |     367.00      |  1900 x2  |     NVMe     |   included   |                                              372.00                                              |
+
+### Base
+
+According to the official [documentation](https://docs.base.org/guides/run-a-base-node#hardware-requirements) for a Base full node its recommended to have an SSD of 1TB but
+we recommend to have atleast 4TB SSD for downloading and restoring snapshots. As per writing this doc each mainnet snapshot takes around 1.5TB of space. So here are our recommendations:
+
+- CPU: 4 cores or 8 vCPUs
+- Memory: 16 GB
+- Disk: 4 TB SSD
+
+|   Provider   |  Server Type  | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) |                                        Monthly Cost ($)                                         |
+| :----------: | :-----------: | :-------------: | :-------: | :----------: | :----------: | :---------------------------------------------------------------------------------------------: |
+|     AWS      |  c6a.2xlarge  |     227.38      |   4000    |     GP3      |    320.00    |     [547.38](https://calculator.aws/#/estimate?id=6afab4be83ab287f2c6959b75ce5385152cd1470)     |
+|     GCP      | c3d-highcpu-8 |     224.39      |   4000    | Balanced SSD |    440.00    | [664.39](https://cloud.google.com/products/calculator/#id=4f7743e9-50e1-429e-a8e8-8ca6845a43b5) |
+|    Azure     |    F8s v2     |     246.74      |   4096    | Standard SSD |    307.40    |                 [554.14](https://azure.com/e/9de1140735a849349aea66ba899dff35)                  |
+| DigitalOcean |      c-8      |     168.00      |   4000    |   Default    |    400.00    |                                             568.00                                              |
+|   Latitude   | c3.medium.x86 |     367.00      |  1900 x2  |     NVMe     |   included   |                                             388.00                                              |
