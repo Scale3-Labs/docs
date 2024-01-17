@@ -65,6 +65,7 @@
 				"alerting/network-intelligence",
 				"alerting/node-updates",
 				"alerting/node-updates-intelligence",
+				"alerting/setup-Telegram-integration",
 				"alerting/silence-grafana-alerts",
 				"alerting/alert-configuration"
 			]
