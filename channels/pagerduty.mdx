@@ -3,39 +3,17 @@ title: PagerDuty
 description: Steps to setup alerts for PagerDuty
 ---
 
-1. Create a **New Service** in PagerDuty at [https://\<TEAM-NAME>.pagerduty.com/service-directory/new](https://<TEAM-NAME>.pagerduty.com/service-directory/new)
+1. On the Home Page, click the Settings tab.
+![](/images/email-alert-channel.png)
+2. Click on **Integrations** tab on the left, then press **Connect** under **PagerDuty**.
+![](/images/pager-duty-alert-1.png)
+3. Enter your **Integration Key** from your **PagerDuty** account. Click on the link for instructions.
+![](/images/pager-duty-alert-2.png)
+4. Enter your Integration Key and press **Connect** at the bottom 
 
-![New](/images/pagerduty-new.png)
+5. Verify by seeing **Connected** under the **PagerDuty** section in the **Integrations** tab.
+![](/images/pager-duty-alert-3.png)
+6. All Done.
 
-2. Enter a **name** and **description** for your service
-
-![Name and description](/images/pagerduty-name-description.png)
-
-3. Assign an **Escalation Policy** - this will instruct PagerDuty who to route alerts to
-
-   1. You can choose to either generate a new escalation policy (you will be the default on call) or select an existing escalation policy that you have used previously.
-
-![Escalation Policy](/images/pagerduty-escalation.png)
-
-4. Select Events API V2 for your integration
-
-![Events API V2](/images/pagerduty-events-api-v2.png)
-
-5. Select Create Service
-
-![Create Service](/images/pagerduty-create-service.png)
-
-6. You have now successfully created your service!
-7. After creating your new service, you will be redirected to the integration page for that service. Copy the **Integration Key**.
-8. Sign in to your Scale3 Labs account at www.scale3labs.com
-9. Select Alerting
-
-![Alerting](/images/pagerduty-alerting.png)
-
-10. Paste your **Integration Key** into the box titled ‘Integration Key’ under the **PagerDuty** section and click **Connect**
-
-![Integration Key](/images/pagerduty-integration-key.png)
-
-11. Done!
-
-![Done](/images/pagerduty-done.png)
+ Note: If linked is clicked, look for Generate a New Integration Key. 
+ ![](/images/generate-key.png)

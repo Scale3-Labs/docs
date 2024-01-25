@@ -103,13 +103,17 @@
 				"nodepilot/nodepilot-on-aws",
 				"nodepilot/nodepilot-on-azure",
 				{
+					
 					"group": "Supported Chains",
 					"pages": [
 						"nodepilot/supported-chains/nodepilot-flow"
 					]
 				},
 				"nodepilot/nodepilot-cost-estimation",
-				"nodepilot/nodepilot-faqs"
+				"nodepilot/nodepilot-faqs",
+				"nodepilot/deploying-a-node",
+				"nodepilot/linking-a-node"
+				
 			]
 		},
 		{
