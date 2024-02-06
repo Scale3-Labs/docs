@@ -1,0 +1,81 @@
+---
+title: Ethereum Validator Setup
+sidebarTitle: Ethereum Validator Setup Guide
+---
+
+To run an Ethereum validator, Ethereum Foundation as laid out a checklist that one should be aware of before running a validator. 
+The checklist can be found [here](https://launchpad.ethereum.org/en/checklist). 
+
+Make sure you are aware of the risks associated with running a validator and have read the checklist before proceeding.
+
+# Steps to setup Ethereum Validator
+
+The following are the steps in order to setup an Ethereum Validator server using Scale3.
+
+1. Generate the validator keystore file using the staking cli.
+2. Setup an Ethereum validator server using Scale3, and wait for node to sync to tip.
+3. Follow the instructions to add stake on your Ethereum validator.
+
+# Ethereum Validator Key Generation
+
+1. Download the latest version of staking deposit cli from the official repository [here](https://github.com/ethereum/staking-deposit-cli/releases/latest). Make sure you download the right version for your operating system.
+2. Extract the downloaded file and navigate to the directory where the file is extracted. You should see a file named `deposit`.
+3. Run the following command to generate the validator keystore file. Replace `--chain` with the correct chain id, `--keymanager` with the correct keymanager, and `--datadir` with the correct data directory.
+
+
+    ```bash
+      ./deposit --language english --non_interactive new-mnemonic --num_validators 1 --mnemonic_language english --chain <ETHEREUM_NETWORK> --keystore_password <KEY_PASSWORD>
+      ```
+    Example if you are generating key for goerli testnet:
+
+      ```bash
+      ./deposit --language english --non_interactive new-mnemonic --num_validators 1 --mnemonic_language english --chain goerli --keystore_password 'examplepassword'
+      ```
+
+  <Note>
+    Make sure to replace `<ETHEREUM_NETWORK>` with the correct Ethereum network you are generating the key for. Replace `<KEY_PASSWORD>` with the password you want to use for the keystore file.
+  </Note>
+
+4. You will see the following output in your terminal after running the above command:
+
+   ```bash
+   This is your mnemonic (seed phrase). Write it down and store it safely. It is the ONLY way to retrieve your deposit.
+
+   scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi scale3 wagmi
+
+   Press any key when you have written down your mnemonic.
+   ```
+
+   Make sure to write down the mnemonic and store it safely also copy the next in clipboard you will need it in next step. You will need it to recover your validator key in case of any issues. Press any key to continue after you have written down the mnemonic.
+
+5. You will be prompted to enter a password for the keystore file. Paste the copied mnemonic and press enter. You will see the following output in your terminal:
+
+   ```bash
+   Creating your keys.
+   Creating your keystores:	  [####################################]  1/1
+   Verifying your keystores:	  [####################################]  1/1
+
+   Success!
+   ```
+
+6. You should see a new folder named `validator_keys` in the directory where you ran the command. Inside the folder, you will see a file named like `keystore-m_12381_3600_0_0_0-*.json`. This is your keystore file. **Make sure to store it safely and do not share it with anyone.**
+
+# Ethereum Validator Server Setup
+
+Login to your Scale3 account and navigate to deploy an Ethereum validator server.
+
+You will be prompted to enter the Validator key and validator key password. So make sure to have the keystore file and password ready.
+
+# Adding Stake to Ethereum Validator
+
+Once your Ethereum validator server is up and running, you will need to add stake to your validator.
+
+<Warning>
+	Before you proceed, You should wait until your Execution Client and Consensus
+	Client have fully synced. If they have not and your validator(s) become active
+	on the network you would be subject to inactivity penalties.
+</Warning>
+
+You can follow the instructions on launchpad to add stake to your Ethereum validator. Make sure to have the keystore file and password ready.
+
+Launchpad: [Mainnet](https://launchpad.ethereum.org/en/overview) [Goerli](https://goerli.launchpad.ethereum.org/en/overview)
