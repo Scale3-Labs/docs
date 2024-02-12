@@ -5,8 +5,8 @@ description: "Welcome to the Scale3 Documentation. Here you will find all the in
 
 Whether you have a validator node or a full node, Scale3 provides you with a set of tools to help you manage your node and keep it healthy.
 
-- If you already have a node, you can jump straight to the [Setup Alerts](#setup-alerts-for-your-validator-node) section.
-- If you wish to setup a new node, you can follow the [Node Setup](#setup-and-run-a-validator-or-full-node) section to first get a node up and running. Then you can start with the [Setup Alerts](#setup-alerts-for-your-validator-node) section to setup alerts followed by the [Setup Monitoring](#setup-a-monitoring-dashboard-for-your-validator-node) section to setup a monitoring dashboard.
+- If you already have a node, and would like to start monitoring it, you can jump straight to the [linking a node](nodepilot/linking-a-node) then [Setup Alerts](#setup-alerts-for-your-validator-node) section.
+- If you wish to setup a new node, you can follow the [Deploying a node](nodepilot/deploying-a-node) section to first get a node up and running.
   > **Note**: Scale3 does not provide node hosting infrastructure. We have built an open source tool to help you set up a validator or a full node.
 
 ## Setup Alerts for your validator node
@@ -46,22 +46,6 @@ Setup alerts for your node health, validator metrics, node software releases and
   </Card>
 </CardGroup>
 
-## Setup a monitoring dashboard for your validator node
-
-Setup a validator node monitoring dashboard by linking your validator node to our platform. The monitoring dashboard is a Grafana based dashboard which is completely managed by Scale3 so you do not have to worry about setting up and maintaining a prometheus-grafana infrastructure.
-
-![Scale3 Monitoring](/images/sui-grafana.png)
-
-
-<CardGroup cols={2}>
-  <Card
-    title="Agent based - Push (Recommended)"
-    icon="arrows-rotate"
-    href="/monitoring/push-method"
-  >
-    Installs the Grafana agent. Includes node & host metrics.
-  </Card>
-</CardGroup>
 
 ## Setup a livetail logging dashboard for your validator node
 
@@ -107,23 +91,6 @@ Setup a Sui validator/full node using our [open source tool](https://github.com/
   </Card>
 </CardGroup>
 
-## Node Inventory Management
-
-> **Note**: We currently support this only for the Sui, APTOS, ETH, SOL, NEAR, MATIC and AVAX. We will be adding support for other blockchains soon.
-
-Do you run a cluster of nodes across different networks? Setup a single view dashboard for all your nodes and manage them efficiently.
-
-![Node Inventory](/images/inventory.png)
-
-<CardGroup cols={2}>
-  <Card
-    title="Node Inventory"
-    icon="circle-nodes"
-    href="/node-inventory/introduction"
-  >
-    Follow the instructions to setup a single view dashboard for all your nodes.
-  </Card>
-</CardGroup>
 
 ## API Integrations
 

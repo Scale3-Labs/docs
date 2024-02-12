@@ -4,7 +4,7 @@
 
 To uninstall Scale3 CLI you can either find your previous install directory or start by downloading the uninstall script. For this exercise, we walk through downloading the script.
 
-- Log in to the node you want to uninstall the node from.
+- SSH in to the node you want to uninstall the node from.
 - Download the uninstall script and change the permissions
 
 ```bash
@@ -12,10 +12,22 @@ curl -L -G --fail "https://web-backend.scale3production.com/cli/binary" | tar -x
 chmod a+x uninstallcli.sh
 ```
 
-- Run the uninstall script
+- Run the uninstall script and remove both Grafana Agent and Vector agent 
 
 ```bash
-./uninstallcli.sh
+./uninstallcli.sh --component all
+```
+
+- If you prefer to only remove Grafana you can run 
+
+```bash
+./uninstallcli.sh --component grafana
+```
+
+- To only remove Vector you can run 
+
+```bash
+./uninstallcli.sh --component vector
 ```
 
 - This completes the removal of the Scale3 CLI from your node. You can follow the onboarding [steps](https://scale3labs.com/docs/monitoring/introduction) to monitor your node again.

@@ -65,7 +65,7 @@
 				"alerting/network-intelligence",
 				"alerting/node-updates",
 				"alerting/node-updates-intelligence",
-				"alerting/setup-Telegram-integration",
+				"alerting/setup-telegram-integration",
 				"alerting/silence-grafana-alerts",
 				"alerting/alert-configuration"
 			]
@@ -86,7 +86,6 @@
 			"group": "Monitoring",
 			"pages": [
 				"monitoring/introduction",
-				"monitoring/push-method",
 				"monitoring/push-method-k8s"
 			]
 		},
@@ -137,12 +136,6 @@
 			]
 		},
 		{
-			"group": "Node Inventory Management",
-			"pages": [
-				"node-inventory/introduction"
-			]
-		},
-		{
 			"group": "API Integration",
 			"pages": [
 				"api-integration/introduction",
@@ -166,13 +159,6 @@
 				"command-line-interface/introduction",
 				"command-line-interface/install-Scale3-Cli",
 				"command-line-interface/uninstall-Scale3-Cli"
-			]
-		},
-		{
-			"group": "Node Checker",
-			"pages": [
-				"nodechecker/sui-node-checker",
-				"nodechecker/aptos-node-checker"
 			]
 		}
 	],
