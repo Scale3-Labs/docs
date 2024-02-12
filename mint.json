@@ -52,9 +52,7 @@
 	"navigation": [
 		{
 			"group": "Home",
-			"pages": [
-				"introduction"
-			]
+			"pages": ["introduction"]
 		},
 		{
 			"group": "Alerting",
@@ -91,10 +89,7 @@
 		},
 		{
 			"group": "Logging",
-			"pages": [
-				"logging/getting-started",
-				"logging/logging-faqs"
-			]
+			"pages": ["logging/getting-started", "logging/logging-faqs"]
 		},
 		{
 			"group": "Nodepilot",
@@ -108,7 +103,8 @@
 					
 					"group": "Supported Chains",
 					"pages": [
-						"nodepilot/supported-chains/nodepilot-flow"
+						"nodepilot/supported-chains/nodepilot-flow",
+						"nodepilot/supported-chains/ethereum-validator"
 					]
 				},
 				"nodepilot/nodepilot-cost-estimation",
@@ -141,15 +137,11 @@
 				"api-integration/introduction",
 				{
 					"group": "Node Updates",
-					"pages": [
-						"api-integration/node-updates/GET-node-updates"
-					]
+					"pages": ["api-integration/node-updates/GET-node-updates"]
 				},
 				{
 					"group": "Network Feed",
-					"pages": [
-						"api-integration/network-feed/GET-network-feed"
-					]
+					"pages": ["api-integration/network-feed/GET-network-feed"]
 				}
 			]
 		},
