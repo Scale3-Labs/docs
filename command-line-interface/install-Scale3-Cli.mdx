@@ -4,8 +4,8 @@ title: Install Scale3 CLI
 
 To install Scale3 CLI you can either find your previous install directory or start by downloading the install script. For this exercise, we walk through downloading the script.
 
-- Log in to the node you want to install the cli on.
-- Download the uninstall script and change the permissions
+- SSH in to the node you want to install the cli on.
+- Download the install script and change the permissions
 
 ```bash
 curl -L -G --fail "https://web-backend.scale3production.com/cli/binary" | tar -xz
@@ -18,4 +18,4 @@ chmod a+x uninstallcli.sh
 ./installcli.sh -k <YOUR_API_KEY>
 ```
 
-- This completes the installation of the Scale3 CLI on your node. You can see [Monitoring](/monitoring/push-method) section to setup monitoring and [Logging](/logging/getting-started) section to setup logging
+- This completes the installation of the Scale3 CLI on your node. You can see [Monitoring](/nodepilot/linking-a-node) section to setup monitoring and [Logging](/logging/getting-started) section to setup logging
