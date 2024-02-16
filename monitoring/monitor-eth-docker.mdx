@@ -1,0 +1,63 @@
+---
+title: Monitor your ETH-Docker or any docker based node using Scale3 Autopilot
+---
+
+# Monitor your ETH-Docker or any docker based node using Scale3 Autopilot
+
+When running Docker for your ETH nodes, you need to follow these steps to add Scale3 Autopilot monitoring:
+
+- You need to expose metrics port for your Execution and Consensus clients; here is a table of clients and port mappings. Follow steps below to expose metrics port:
+- Check your `COMPOSE_FILE` to determine what ports to expose
+
+```shell
+cd ~/eth-docker/ && cat .env | grep -e COMPOSE_FILE=
+
+COMPOSE_FILE=nimbus-cl-only.yml:nethermind.yml:grafana.yml:grafana-shared.yml
+```
+
+- In the example above, the result is `nimbus` and `nethermind`. I need to modify those two client configurations to expose my metrics port to Scale3 Grafana agent.
+- We need to add a line to expose the Nimbus metrics port
+
+```shell
+- "8008:8008" 
+```
+
+- Backup the nimbus config file before making any modifications
+
+```shell
+cp nimbus-cl-only.yml nimbus-cl-only.yml.bk
+```
+
+- Open the file using nano and navigate to the ports section
+
+```shell
+nano nimbus-cl-only.yml
+```
+
+- Add a line for exposing 8008 as shown below. Be sure the indentation lines up with existing entries
+
+![Untitled](images/ethdocker0.png)
+
+- Save the file using Ctrl + S then Ctrl + X to exit
+- Verify the changes have taken effect
+
+```shell
+cat nimbus-cl-only.yml | grep -e "8008:8008"
+```
+
+![Untitled](images/ethdocker1.png)
+
+- Repeat the same process for Nethermind or any client of choice. Pay attention to the metrics port and adjust accordingly
+- Example below I will expose port `6060` by adding `“6060:6060”` under the ports:
+
+![Untitled](images/ethdocker2.png)
+
+- Next run `ethd up` to restart the containers and have the changes take effect
+- You can verify the posts are now exposed by running
+
+```shell
+docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" | grep consensus
+docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" | grep execution
+```
+
+If you have any specific questions or need further assistance, contact us using the chat icon in-platform or email support@scale3labs.com .

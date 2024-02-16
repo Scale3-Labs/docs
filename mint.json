@@ -84,7 +84,8 @@
 			"group": "Monitoring",
 			"pages": [
 				"monitoring/introduction",
-				"monitoring/push-method-k8s"
+				"monitoring/push-method-k8s",
+				"monitoring/monitor-eth-docker"
 			]
 		},
 		{
