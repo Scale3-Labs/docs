@@ -2,11 +2,9 @@
 title: Monitor your ETH-Docker or any docker based node using Scale3 Autopilot
 ---
 
-# Monitor your ETH-Docker or any docker based node using Scale3 Autopilot
-
 When running Docker for your ETH nodes, you need to follow these steps to add Scale3 Autopilot monitoring:
 
-- You need to expose metrics port for your Execution and Consensus clients; here is a table of clients and port mappings. Follow steps below to expose metrics port:
+- You need to expose metrics port for your Execution and Consensus clients; [here](#metrics-port-for-supported-eth-clients)  is a table of clients and port mappings. Follow steps below to expose metrics port:
 - Check your `COMPOSE_FILE` to determine what ports to expose
 
 ```shell
@@ -59,5 +57,14 @@ cat nimbus-cl-only.yml | grep -e "8008:8008"
 docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" | grep consensus
 docker ps --format "{{.ID}}\t{{.Names}}\t{{.Ports}}" | grep execution
 ```
+
+## Metrics Port for Supported ETH clients
+
+| Client | Metrics Port |
+| --- | --- |
+| Geth | 6060 |
+| Nethermind | 6060 |
+| LIghthouse | 5054 |
+| Nimbus | 8008 |
 
 If you have any specific questions or need further assistance, contact us using the chat icon in-platform or email support@scale3labs.com .
