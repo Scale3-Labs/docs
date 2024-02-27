@@ -6,3 +6,19 @@
 ![](/images/deployingnode2.png)
 4. Once you press deploy you will be redirected to the "deployed" node
 ![](/images/deployingnode3.png)
+
+After a successful node deployment, you need to allow SSH from your machine to the newly deployed node. You can do this by adding your IP (the host you will be running ssh from) to:
+
+- Security group inbound rule (AWS)
+
+- Firewall rules (GCP)
+
+- Network Security Group rules (Azure)
+
+See reference screenshot below for AWS
+
+![](/images/aws-pic.png)
+
+
+**Note: When creating a new Base and Polygon node be aware monitoring dashboards don’t show until the snapshot download completes.**
+
