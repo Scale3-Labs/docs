@@ -67,6 +67,7 @@
 				"alerting/silence-grafana-alerts",
 				"alerting/alert-configuration"
 			]
+			
 		},
 		{
 			"group": "Alert Channels",
