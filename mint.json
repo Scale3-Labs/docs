@@ -58,26 +58,28 @@
 			"group": "Alerting",
 			"pages": [
 				"alerting/introduction",
-				"alerting/validator-alerts",
-				"alerting/node-health",
-				"alerting/network-intelligence",
-				"alerting/node-updates",
-				"alerting/node-updates-intelligence",
-				"alerting/setup-telegram-integration",
+				{
+					"group": "Alert Types",
+					"pages": [
+						"alerting/types/node-health",
+						"alerting/types/validator-alerts",
+						"alerting/types/network-intelligence"
+					]
+				},
+				{
+					"group": "Alert Channels",
+					"pages": [
+						"alerting/channels/introduction",
+						"alerting/channels/email",
+						"alerting/channels/slack",
+						"alerting/channels/pagerduty",
+						"alerting/channels/opsgenie",
+						"alerting/channels/telegram",
+						"alerting/channels/webhook"		
+					]
+				},
 				"alerting/silence-grafana-alerts",
 				"alerting/alert-configuration"
-			]
-		},
-		{
-			"group": "Alert Channels",
-			"pages": [
-				"channels/introduction",
-				"channels/email",
-				"channels/slack",
-				"channels/pagerduty"
-				,"channels/opsgenie"
-,"channels/telegram"
-		,"channels/webhook"		
 			]
 		},
 		{
