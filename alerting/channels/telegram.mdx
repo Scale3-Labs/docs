@@ -1,17 +1,47 @@
----
-title: Telegram
-description: Steps to setup alerts for Telegram
----
-1. On the Home Page, click the Settings tab.
-![](/images/email-alert-channel.png)
-2. Click on **Integrations** tab on the left, then press **Connect** under **Telegram**.
-![](/images/telegram-alert-1.png)
-3. On screen instructions will show how to connect your Chat ID
-![](/images/telegram-chat-id-1.png)
 
-![](/images/telegram-chat-id-2.png)
-4. Enter Chat ID and click connect 
 
-5. Verify by seeing **Connected** under the **Telegram** section in the Integrations tab.
 
-![](/images/telegram-chat-id-3.png)
+
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Receive alerts as 1:1 chat](#to-receive-alerts-as-a-1-1-telegram-chat)
+3. [Receive alerts in a group chat](#to-receive-alerts-in-a-telegram-group-chat)
+4. [Add Telegram chat ID to Scale3 Autopilot Integrations](#add-telegram-chat-id-to-scale3-autopilot-integrations)
+5. [Configuring Telegram Integration for Grafana Alerts](#configuring-telegram-integration-for-grafana-alerts)
+6. [Conclusion](#conclusion)
+
+## Prerequisites
+
+- Have a Telegram account. Sign up for one [here](https://telegram.org/).
+- Have a Telegram group chat or 1:1 chat with the `scale3-intel` bot. See steps below to setup.
+
+
+### To receive alerts as a 1:1 Telegram chat
+
+- Search `scale3-intel` bot in your Telegram app
+- Open a chat with the bot and type `/start`
+- You will receive a Verification Complete message, copy the Chat ID and continue the steps
+
+![Untitled](/images/tg1.png)
+
+### To receive alerts in a Telegram Group chat
+
+- Invite `scale3-intel` bot to the telegram group chat
+- Type in `/verify` in the group chat, you will receive a Verification Complete message
+- Copy the Chat ID include any - as shown in example below the chat ID is `-4038973593`
+
+![Untitled](/images/tg2.png)
+
+- 
+
+### Add Telegram chat ID to Scale3 Autopilot Integrations
+
+- On the Scale3 Autopilot page, Navigate to **Settings > Integrations**
+    - You may also hit **CMD+K** on your keyboard then search for **Integrations**
+- Use the **Connect** button under Telegram integration to provide the Chat ID you copied from previous step
+
+![Untitled](/images/tg3.png)
+
+- You’ve successfully configured Telegram as an alert integration.
