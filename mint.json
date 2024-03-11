@@ -59,7 +59,15 @@
             "pages": [
                 "intel/introduction",
                 "intel/node-updates",
-                "intel/node-updates-intelligence"]
+                {
+					"group": "Blockchain Intelligence",
+					"pages": [
+						"intel/blockchain-intelligence/introduction",
+						"intel/blockchain-intelligence/node-software-updates",
+						"intel/blockchain-intelligence/network-announcements"
+					]
+				}
+			]
         },
         {
             "group": "Alerting",
@@ -137,20 +145,6 @@
                         "node-setup/sui-wizard/sui-node-operations",
                         "node-setup/sui-wizard/sui-node-helper-faqs"
                     ]
-                }
-            ]
-        },
-        {
-            "group": "API Integration",
-            "pages": [
-                "api-integration/introduction",
-                {
-                    "group": "Node Updates",
-                    "pages": ["api-integration/node-updates/GET-node-updates"]
-                },
-                {
-                    "group": "Network Feed",
-                    "pages": ["api-integration/network-feed/GET-network-feed"]
                 }
             ]
         },
