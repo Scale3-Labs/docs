@@ -1,3 +1,6 @@
+{/* add a blockquote */}
+> This service is currently available to enterprise users only
+
 ## **Introduction**
 
 ### **What is the Node Update Intelligence Service?**
@@ -13,22 +16,14 @@ Key Features:
 
 ---
 
-## **Creating an API Key**
+## **Setup**
 
-### **Steps to Generate Your API Key**
+### **Generate your API key**
 
 1. **Log in to your account**: Sign up for a [Scale3 Autopilot](https://app.scale3labs.com/signup) account if you haven't. Navigate to [Scale3 Autopilot](https://app.scale3labs.com//signin) and log in once you have an account.
-2. **Go to Settings**: Once logged in, click on the "API Key" tab.
+2. Click on  **Intel** from the top panel. Then click on **API key** to view your API key. You can generate a new API key by clicking on **Re-generate API key** button below.
 
-![Alt text](/images/apikey-settings.png)
-
-3. **Generate API Key**: Click on the "Re-generate API Key" button.
-    
-![](/images/apikey-generate.png)
-    
-4. **Configure Scopes (Node Updates Intel Only)**: Select the scopes that you need. For querying node updates, you will need the **`READ_NODE_UPDATES`** scope.
-
-Your API key will be displayed. Make sure to copy and securely store it.
+![Alt text](/images/intel-api-key.png)
 
 ---
 
@@ -44,7 +39,8 @@ GET https://web-backend.scale3production.com/node_updates/?chain=nameOfChain
 
 ### **Headers**
 
-- **`x-api-key`**: Your generated API key
+- **`x-api-key`**: Your API key
+- **`x-user-agent`**: `s3l-web-client`
 
 ### **Query Parameters**
 
@@ -56,7 +52,7 @@ GET https://web-backend.scale3production.com/node_updates/?chain=nameOfChain
 
 ```bash
 curl --location "https://web-backend.scale3production.com/node_updates?chain=eth&client=geth" \ 
---header "x-api-key: afada-95fd-4a65-ab8a-adadada"
+--header 'x-api-key: afada-95fd-4a65-ab8a-adadada' --header 'x-user-agent: s3l-web-client'
 ```
 
 Replace your-api-key-here with the API key you generated. This example queries updates for the Bitcoin (BTC) chain. You can replace btc with other supported chains like eth for Ethereum or sol for Solana.
@@ -125,14 +121,14 @@ Here are the chains that we currently support:
 
 ```bash
 curl --location 'https://web-backend.scale3production.com/node_updates?chain=eth&client=geth' \
---header 'x-api-key: your-api-key-here'
+--header 'x-api-key: your-api-key-here' --header 'x-user-agent: s3l-web-client'
 ```
 
 ### **Query for Sui Updates**
 
 ```bash
 curl --location 'https://web-backend.scale3production.com/node_updates?chain=sui' \
---header 'x-api-key: your-api-key-here'
+--header 'x-api-key: your-api-key-here' --header 'x-user-agent: s3l-web-client'
 ```
 
 For more use-cases, refer to our API documentation linked below.

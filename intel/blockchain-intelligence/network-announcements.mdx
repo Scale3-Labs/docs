@@ -1,0 +1,206 @@
+---
+title: "Blockchain Intelligence APIs: GET Network Feed"
+description: "This endpoint allows you to query our network intelligence feed for a specific chain,  network (mainnet/testnet) and get the latest announcements from Discord for that specific chain. Find the list of supported chains in the chain parameter below. You will need your API key to send requests. If you have any questions or feedback, please reach out to us at support@scale3labs.com."
+api: "GET /feed"
+
+---
+
+### Utilizing Query Parameters with GET Network Feed
+
+Similar to our 'GET Node Updates' endpoint, the 'GET Network Feed' also supports various query parameters for advanced search capabilities. For a detailed guide on using query parameters, please refer to the [GET Node Updates documentation](https://scale3labs.com/docs/api-integration/node-updates/GET-node-updates). Below are specific examples tailored for the 'GET Network Feed' endpoint.
+
+#### Examples of Query Parameters for Network Feed
+
+1. **Filtering by Label and Chain:**
+   Retrieve network feeds tagged as 'announcement' for the 'Ethereum' chain.
+   ```http
+   GET /network-feed?labels=announcement&chain=eth
+
+2. **Pagination and Network Specific Feed:**
+Get the second page of feeds for the 'mainnet' network, showing 5 records per page.
+    ```http
+    GET /network-feed?network=mainnet&page=2&page_size=5
+
+A complete list of supported parameters for the 'GET Network Feed' endpoint is provided below.
+  <ParamField query="labels" type="string[]" optional>
+    Type of feed. This can contain (announcement, general information, time
+    sensitive, software upgrade, problem and needs action)
+  </ParamField>
+  <ParamField query="chain" type="string" required>
+    Network feed chain. Currently supported chains values are (  "aptos",
+  "arb",
+  "atom",
+  "avax",
+  "base",
+  "celo",
+  "dot",
+  "eth",
+  "flow",
+  "harmony",
+  "kava",
+  "mina",
+  "near",
+  "op",
+  "polygon",
+  "sei",
+  "sol",
+  "stx",
+  "sui",
+  "vet",
+  "xlm")
+  </ParamField>
+  <ParamField query="event" type="string" optional>
+    Title of the network feed event
+  </ParamField>
+  <ParamField query="description" type="string" optional>
+    Description of the network feed event
+  </ParamField>
+  <ParamField query="network" type="string" optional>
+    Network feed network (mainnet, testnet, devnet)
+  </ParamField>
+  <ParamField query="clients" type="string[]" optional>
+    Array of clients this feed corresponds to depending on the chain. Currently supported clients include: (
+  "aptos",
+  "atom",
+  "avalanchego",
+  "base",
+  "besu",
+  "bor",
+  "celo",
+  "flow",
+  "gaia",
+  "geth",
+  "harmony",
+  "heimdall",
+  "horizon",
+  "jito",
+  "kava",
+  "lighthouse",
+  "lodestar",
+  "mina",
+  "near",
+  "nethermind",
+  "nimbus",
+  "nitro",
+  "optimism",
+  "polkadot",
+  "polygon",
+  "rocketpool",
+  "sei",
+  "solana",
+  "stacks",
+  "sui",
+  "teku",
+  "thor") 
+  </ParamField>
+  <ParamField query="page_size" type="integer" optional>
+    Size of a single page i.e how many records to send back in the response
+  </ParamField>
+  <ParamField query="page" type="integer" optional>
+    Page number
+  </ParamField>
+
+
+<Accordion title="200 (OK) Response Object Schema">
+    <ResponseField name="result" type="Feed[]">
+       <Expandable title="Network Feed Object Properties" defaultOpen="true">
+     <ResponseField name="labels" type="string[]" required>
+        Type of feed. This can contain (announcement, general information, time sensitive, software upgrade, problem and needs action)
+        </ResponseField>
+        <ResponseField name="chain" type="string" required>
+        Network feed chain
+        </ResponseField>
+        <ResponseField name="event" type="string" required>
+        Title of the network feed event
+        </ResponseField>
+        <ResponseField name="description" type="string" required>
+            Description of the network feed event
+        </ResponseField>
+        <ResponseField name="network" type="string" required>
+        Network feed network (mainnet, testnet, devnet)
+        </ResponseField>
+        <ResponseField name="clients" type="string[]" required>
+            Array of clients this feed corresponds to depending on the chain. 
+        </ResponseField>
+        <ResponseField name="additional_info_url" type="string" required>
+        Link to additional information about the feed
+        </ResponseField>
+        </Expandable>
+    </ResponseField>
+    <ResponseField name="metadata" type="Metadata" required>
+        <Expandable title="Metadata Object Properties" defaultOpen="true">
+            <ResponseField name="page_size" type="integer" required>
+                Size of a single page i.e how many records to send back in the response
+            </ResponseField>
+            <ResponseField name="page" type="integer" required>
+            Page number
+            </ResponseField>
+            <ResponseField name="total_pages" type="integer" required>
+                Total pages with the given page_size
+            </ResponseField>
+        </Expandable>
+    </ResponseField>
+</Accordion>
+<Accordion title="APIError Response Object Schema"> 
+<ResponseField name="error" type="ApiError">
+    <Expandable title="ApiError Object Properties"  defaultOpen="true">
+        <ResponseField name="message" type="string" required >    
+            Error message
+        </ResponseField>
+        <ResponseField name="status" type="integer" required>
+            Http status code
+        </ResponseField>
+        <ResponseField name="inner_errors" type="ApiError[]" optional>
+            Array of errors which led to the error
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+    
+</Accordion>
+<ResponseExample>
+
+```json Sample 200 (OK) Response
+{
+  "result": [
+    {
+      "_id": "64d3d1dbcc6c13e3f7e04b96",
+      "labels": ["software upgrade", "time sensitive"],
+      "chain": "sui",
+      "event": "Testnet Upgrade v1.7.0 Now Available with Fixes and Optimizations",
+      "description": "@everyone The next upgrade on `testnet` is now available. This upgrade contains several fixes and optimizations. This release contains an upgrade to protocol version 20 that could be applied as early as tomorrow at epoch change if 2f+1+0.5f validators by stake have upgraded. Thank you!\n\n**Commit Sha:** `362c5c3f22d8be5ace3e2586056403db05b13cda` \n**Branch:** `testnet`\n**Release Tag:** `testnet-v1.7.0`\n**Release Notes:** https://github.com/MystenLabs/sui/releases/tag/testnet-v1.7.0",
+      "network": "testnet",
+      "clients": ["sui"],
+      "additional_info_url": "https://github.com/MystenLabs/sui/releases/tag/testnet-v1.7.0",
+      "createdAt": 1691603419,
+      "updatedAt": 1691603419
+    },
+    {
+      "_id": "64d3d042db4014197d3e8661",
+      "labels": ["software upgrade", "needs action"],
+      "chain": "sui",
+      "event": "Important Upgrade for Validator Operators on Testnet Node Today",
+      "description": "@Validators **ALL VALIDATOR OPERATORS:** We have an upgrade for you to install on your testnet node today. This upgrade contains several fixes and optimizations. This release contains an upgrade to protocol version 20 that could be applied as early as tomorrow at epoch change if 2f+1+0.5f validators by stake have upgraded. You do NOT need to wipe your DB. Any of you running fullnodes as well also need to upgrade your fullnode. Thank you!\n\n**Commit Sha:** `362c5c3f22d8be5ace3e2586056403db05b13cda` \n**Branch:** `testnet`\n**Release Tag:** `testnet-v1.7.0`\n**Release Notes:** https://github.com/MystenLabs/sui/releases/tag/testnet-v1.7.0",
+      "network": "testnet",
+      "clients": ["sui"],
+      "additional_info_url": "https://github.com/MystenLabs/sui/releases/tag/testnet-v1.7.0",
+      "createdAt": 1691603010,
+      "updatedAt": 1691603010
+    }
+  ],
+  "metadata": {
+    "page": 1,
+    "page_size": 2,
+    "total_pages": 58
+  }
+}
+```
+
+```json Sample ApiError Response
+{
+  "error": {
+    "message": "Invalid api key unauthorized",
+    "status": 401
+  }
+}
+```
+</ResponseExample>
