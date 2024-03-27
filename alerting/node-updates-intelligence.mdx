@@ -8,8 +8,11 @@ Key Features:
 
 - Real-time updates on node changes
 - Detailed information including version, commit hash, release date, and more
+- Stay up to date on Discord, Telegram and Slack announcements from various chains.
 - Support for multiple blockchain networks
-- Alert notifications via Slack, PagerDuty, and Email
+- Alert notifications via Slack, PagerDuty, Telegram, Webhook, etc
+
+You will need an enterprise license to generate an API key. Contact support@scale3labs.com for any questions.
 
 ---
 
@@ -18,15 +21,15 @@ Key Features:
 ### **Steps to Generate Your API Key**
 
 1. **Log in to your account**: Sign up for a [Scale3 Autopilot](https://app.scale3labs.com/signup) account if you haven't. Navigate to [Scale3 Autopilot](https://app.scale3labs.com//signin) and log in once you have an account.
-2. **Go to Settings**: Once logged in, click on the "API Key" tab.
+2. **Go to Intel tab**: Once logged in, click on the "Intel" tab then API key.
 
-![Alt text](/images/apikey-settings.png)
+   _NOTE:_ If you don't see this tab, you likely don't have an Enterprise license.
+
+![Alt text](/images/inteltab.png)
 
 3. **Generate API Key**: Click on the "Re-generate API Key" button.
-    
-![](/images/apikey-generate.png)
-    
-4. **Configure Scopes (Node Updates Intel Only)**: Select the scopes that you need. For querying node updates, you will need the **`READ_NODE_UPDATES`** scope.
+
+![](/images/genapikey.png)
 
 Your API key will be displayed. Make sure to copy and securely store it.
 
@@ -51,11 +54,10 @@ GET https://web-backend.scale3production.com/node_updates/?chain=nameOfChain
 - **`chain`**: The blockchain network you are interested in (e.g., **`btc`**, **`eth`**).
 - **`client`**: The specific client software you are interested in (e.g., **`geth`**, **`sui`**).
 
-
 ### Sample Request
 
 ```bash
-curl --location "https://web-backend.scale3production.com/node_updates?chain=eth&client=geth" \ 
+curl --location "https://web-backend.scale3production.com/node_updates?chain=eth&client=geth" \
 --header "x-api-key: afada-95fd-4a65-ab8a-adadada"
 ```
 
@@ -67,57 +69,84 @@ The API will return a JSON object containing an array of node updates.
 
 ```json
 {
-            "_id": "65152b809cb20bf20c58c753",
-            "name": "Phaistos (v1.13.2)",
-            "chain": "eth",
-            "category": "required",
-            "description": "Geth v1.13.2 is a bugfix release with improvements to pathdb corruption, Holesky testnet relaunch, and various fixes and improvements.",
-            "repo_name": "go-ethereum",
-            "tag": "v1.13.2",
-            "network": "testnet",
-            "summary": "This release is primarily a bugfix update featuring the relaunch of the Holesky testnet. It addresses pathdb corruption issues during snap sync node restart, updates the Holesky testnet's genesis configuration, removes the rollback mechanism from snap sync, introduces an optional block parameter for eth_call, and resolves an issue with the --bootnodes flag when it's also configured in the toml file.",
-            "version": "v1.13.2",
-            "commit_hash": "dc34fe8291bfcaefbce97f559e9610beffb2e470",
-            "client": "geth",
-            "release_date": 1695885851,
-            "release_notes_url": "https://github.com/ethereum/go-ethereum/releases/tag/v1.13.2",
-            "priority": "high",
-            "prerequisites": [
-                "If you previously ran Geth with the old Holesky testnet configs",
-                "   manually delete your holesky/chaindata folder and restart before running the new version."
-            ],
-            "breaking_changes": false,
-            "breaking_change_summary": "NA",
-            "upcoming_network_upgrade": " Holesky testnet",
-            "required_for_upcoming_upgrade": true,
-            "build_artifacts": [],
-            "createdAt": 1695886208,
-            "updatedAt": 1696348179
-        }
+  "_id": "65152b809cb20bf20c58c753",
+  "name": "Phaistos (v1.13.2)",
+  "chain": "eth",
+  "category": "required",
+  "description": "Geth v1.13.2 is a bugfix release with improvements to pathdb corruption, Holesky testnet relaunch, and various fixes and improvements.",
+  "repo_name": "go-ethereum",
+  "tag": "v1.13.2",
+  "network": "testnet",
+  "summary": "This release is primarily a bugfix update featuring the relaunch of the Holesky testnet. It addresses pathdb corruption issues during snap sync node restart, updates the Holesky testnet's genesis configuration, removes the rollback mechanism from snap sync, introduces an optional block parameter for eth_call, and resolves an issue with the --bootnodes flag when it's also configured in the toml file.",
+  "version": "v1.13.2",
+  "commit_hash": "dc34fe8291bfcaefbce97f559e9610beffb2e470",
+  "client": "geth",
+  "release_date": 1695885851,
+  "release_notes_url": "https://github.com/ethereum/go-ethereum/releases/tag/v1.13.2",
+  "priority": "high",
+  "prerequisites": [
+    "If you previously ran Geth with the old Holesky testnet configs",
+    "   manually delete your holesky/chaindata folder and restart before running the new version."
+  ],
+  "breaking_changes": false,
+  "breaking_change_summary": "NA",
+  "upcoming_network_upgrade": " Holesky testnet",
+  "required_for_upcoming_upgrade": true,
+  "build_artifacts": [],
+  "createdAt": 1695886208,
+  "updatedAt": 1696348179
+}
 ```
 
 ### Supported Chains
 
+<summary>Blockchain Identifiers (click to expand)</summary>
+
 Here are the chains that we currently support:
 
-- Sui (**`sui`**)
-- Ethereum (**`eth`**)
-- Aptos (**`aptos`**)
-- Solana (**`sol`**)
-- Polygon (**`polygon`**)
-- Near (**`near`**)
-- Harmony (**`harmony`**)
-- Flow (**`flow`**)
-- Avalanche (**`avax`**)
-- Base (**`base`**)
-- Optimism (**`op`**)
-- Cosmos (**`atom`**)
-- Bitcoin (**`btc`**)
-- Polkadot (**`dot`**)
-- Litecoin (**`ltc`**)
-- Cardano (**`ada`**)
-- Stellar (**`xlm`**)
-- Filecoin (**`fil`**)
+| Blockchain          | Identifier |
+| ------------------- | ---------- |
+| Algorand            | `algo`     |
+| Arbitrum            | `arb`      |
+| Aptos               | `aptos`    |
+| Avalanche           | `avax`     |
+| Base                | `base`     |
+| Binance Smart Chain | `bsc`      |
+| Bitcoin             | `btc`      |
+| Cardano             | `ada`      |
+| Celestia            | `tia`      |
+| Celo                | `celo`     |
+| Chainlink           | `link`     |
+| Cosmos              | `atom`     |
+| Cronos              | `cro`      |
+| Ethereum            | `eth`      |
+| Fantom              | `ftm`      |
+| Filecoin            | `fil`      |
+| Flare               | `flr`      |
+| Flow                | `flow`     |
+| Harmony             | `harmony`  |
+| Hedera Hashgraph    | `hbar`     |
+| Helium              | `hnt`      |
+| ICP                 | `icp`      |
+| Injective           | `inj`      |
+| Kava                | `kava`     |
+| Kusama              | `ksm`      |
+| Litecoin            | `ltc`      |
+| Near                | `near`     |
+| Optimism            | `op`       |
+| Polkadot            | `dot`      |
+| Polygon             | `polygon`  |
+| Ripple              | `xrp`      |
+| Sei                 | `sei`      |
+| Solana              | `sol`      |
+| Stacks              | `stx`      |
+| Stellar             | `xlm`      |
+| Sui                 | `sui`      |
+| Tezos               | `xtz`      |
+| Ton                 | `ton`      |
+| Tron                | `trx`      |
+| VeChain             | `vet`      |
+| Zcash               | `zec`      |
 
 ## **Practical Examples**
 
@@ -138,7 +167,6 @@ curl --location 'https://web-backend.scale3production.com/node_updates?chain=sui
 For more use-cases, refer to our API documentation linked below.
 
 - [API Documentation for Node Updates](/api-integration/node-updates/GET-node-updates)
-
 
 ## **Conclusion & Support**
 
