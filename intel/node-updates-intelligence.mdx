@@ -1,3 +1,7 @@
+{/* add a blockquote */}
+
+> This service is currently available to enterprise users only
+
 ## **Introduction**
 
 ### **What is the Node Update Intelligence Service?**
@@ -8,30 +12,19 @@ Key Features:
 
 - Real-time updates on node changes
 - Detailed information including version, commit hash, release date, and more
-- Stay up to date on Discord, Telegram and Slack announcements from various chains.
 - Support for multiple blockchain networks
-- Alert notifications via Slack, PagerDuty, Telegram, Webhook, etc
-
-You will need an enterprise license to generate an API key. Contact support@scale3labs.com for any questions.
+- Alert notifications via Slack, PagerDuty, and Email
 
 ---
 
-## **Creating an API Key**
+## **Setup**
 
-### **Steps to Generate Your API Key**
+### **Generate your API key**
 
 1. **Log in to your account**: Sign up for a [Scale3 Autopilot](https://app.scale3labs.com/signup) account if you haven't. Navigate to [Scale3 Autopilot](https://app.scale3labs.com//signin) and log in once you have an account.
-2. **Go to Intel tab**: Once logged in, click on the "Intel" tab then API key.
+2. Click on **Intel** from the top panel. Then click on **API key** to view your API key. You can generate a new API key by clicking on **Re-generate API key** button below.
 
-   _NOTE:_ If you don't see this tab, you likely don't have an Enterprise license.
-
-![Alt text](/images/inteltab.png)
-
-3. **Generate API Key**: Click on the "Re-generate API Key" button.
-
-![](/images/genapikey.png)
-
-Your API key will be displayed. Make sure to copy and securely store it.
+![Alt text](/images/intel-api-key.png)
 
 ---
 
@@ -47,7 +40,8 @@ GET https://web-backend.scale3production.com/node_updates/?chain=nameOfChain
 
 ### **Headers**
 
-- **`x-api-key`**: Your generated API key
+- **`x-api-key`**: Your API key
+- **`x-user-agent`**: `s3l-web-client`
 
 ### **Query Parameters**
 
@@ -58,7 +52,7 @@ GET https://web-backend.scale3production.com/node_updates/?chain=nameOfChain
 
 ```bash
 curl --location "https://web-backend.scale3production.com/node_updates?chain=eth&client=geth" \
---header "x-api-key: afada-95fd-4a65-ab8a-adadada"
+--header 'x-api-key: afada-95fd-4a65-ab8a-adadada' --header 'x-user-agent: s3l-web-client'
 ```
 
 Replace your-api-key-here with the API key you generated. This example queries updates for the Bitcoin (BTC) chain. You can replace btc with other supported chains like eth for Ethereum or sol for Solana.
@@ -100,53 +94,26 @@ The API will return a JSON object containing an array of node updates.
 
 ### Supported Chains
 
-<summary>Blockchain Identifiers (click to expand)</summary>
-
 Here are the chains that we currently support:
 
-| Blockchain          | Identifier |
-| ------------------- | ---------- |
-| Algorand            | `algo`     |
-| Arbitrum            | `arb`      |
-| Aptos               | `aptos`    |
-| Avalanche           | `avax`     |
-| Base                | `base`     |
-| Binance Smart Chain | `bsc`      |
-| Bitcoin             | `btc`      |
-| Cardano             | `ada`      |
-| Celestia            | `tia`      |
-| Celo                | `celo`     |
-| Chainlink           | `link`     |
-| Cosmos              | `atom`     |
-| Cronos              | `cro`      |
-| Ethereum            | `eth`      |
-| Fantom              | `ftm`      |
-| Filecoin            | `fil`      |
-| Flare               | `flr`      |
-| Flow                | `flow`     |
-| Harmony             | `harmony`  |
-| Hedera Hashgraph    | `hbar`     |
-| Helium              | `hnt`      |
-| ICP                 | `icp`      |
-| Injective           | `inj`      |
-| Kava                | `kava`     |
-| Kusama              | `ksm`      |
-| Litecoin            | `ltc`      |
-| Near                | `near`     |
-| Optimism            | `op`       |
-| Polkadot            | `dot`      |
-| Polygon             | `polygon`  |
-| Ripple              | `xrp`      |
-| Sei                 | `sei`      |
-| Solana              | `sol`      |
-| Stacks              | `stx`      |
-| Stellar             | `xlm`      |
-| Sui                 | `sui`      |
-| Tezos               | `xtz`      |
-| Ton                 | `ton`      |
-| Tron                | `trx`      |
-| VeChain             | `vet`      |
-| Zcash               | `zec`      |
+- Sui (**`sui`**)
+- Ethereum (**`eth`**)
+- Aptos (**`aptos`**)
+- Solana (**`sol`**)
+- Polygon (**`polygon`**)
+- Near (**`near`**)
+- Harmony (**`harmony`**)
+- Flow (**`flow`**)
+- Avalanche (**`avax`**)
+- Base (**`base`**)
+- Optimism (**`op`**)
+- Cosmos (**`atom`**)
+- Bitcoin (**`btc`**)
+- Polkadot (**`dot`**)
+- Litecoin (**`ltc`**)
+- Cardano (**`ada`**)
+- Stellar (**`xlm`**)
+- Filecoin (**`fil`**)
 
 ## **Practical Examples**
 
@@ -154,14 +121,14 @@ Here are the chains that we currently support:
 
 ```bash
 curl --location 'https://web-backend.scale3production.com/node_updates?chain=eth&client=geth' \
---header 'x-api-key: your-api-key-here'
+--header 'x-api-key: your-api-key-here' --header 'x-user-agent: s3l-web-client'
 ```
 
 ### **Query for Sui Updates**
 
 ```bash
 curl --location 'https://web-backend.scale3production.com/node_updates?chain=sui' \
---header 'x-api-key: your-api-key-here'
+--header 'x-api-key: your-api-key-here' --header 'x-user-agent: s3l-web-client'
 ```
 
 For more use-cases, refer to our API documentation linked below.
