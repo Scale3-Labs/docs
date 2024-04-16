@@ -1,7 +1,6 @@
 ---
 title: "Blockchain Intelligence APIs: GET Node Updates"
 description: "This endpoint allows you to query our node update intelligence for a specific chain,  network (mainnet/testnet) and get the latest updates for that specific chain. Find the list of supported chains in the chain parameter below. You will need your API key to send requests. If you have any questions or feedback, please reach out to us at support@scale3labs.com."
-api: "GET /node_updates"
 
 ---
 
@@ -26,37 +25,12 @@ Check out the [api-query-params](https://www.npmjs.com/package/api-query-params)
 For any questions or feedback regarding the use of query parameters with our API, feel free to reach out to our support team at support@scale3labs.com.
 
 The complete list of query parameters supported by the 'GET Node Updates' endpoint is provided below.
-<ParamField query="name" type="string" optional>
-  Name of the node update
-</ParamField>
 <ParamField query="category" type="string" optional>
   Node update category
 </ParamField>
 <ParamField query="chain" type="string" required>
-  Node update chain. Supported chains include: (  "aptos",
-  "arb",
-  "atom",
-  "avax",
-  "base",
-  "celo",
-  "dot",
-  "eth",
-  "flow",
-  "harmony",
-  "kava",
-  "mina",
-  "near",
-  "op",
-  "polygon",
-  "sei",
-  "sol",
-  "stx",
-  "sui",
-  "vet",
-  "xlm")
-</ParamField>
-<ParamField query="description" type="string" optional>
-  Node update description
+    Network feed chain. Currently supported chains values are ("aptos",
+  "algo", "aptos", "arb", "avax", "base", "bnb", "link", "btc", "bch", "ada", "tia", "celo", "atom", "cro", "dash", "doge", "eos", "eth", "etc", "ftm", "fil", "flr", "flow", "harmony", "hbar", "hnt", "icp", "inj", "kava", "ksm", "ltc", "mina", "near", "op", "dot", "polygon", "xrp", "sei", "sol", "stx", "xlm", "sui", "xtz", "trx", "ton", "vet", "zec")
 </ParamField>
 <ParamField query="repo_name" type="string" optional>
   Name of repository that contains the update code
@@ -69,65 +43,81 @@ The complete list of query parameters supported by the 'GET Node Updates' endpoi
 </ParamField>
 <ParamField query="client" type="string" optional>
   Node update client depending on the chain. For chains with no client the default value is the chain itself. Supported clients include: (
+  "cardanonode",
+  "goalgorand",
   "aptos",
-  "atom",
+  "nitro",
   "avalanchego",
   "base",
   "besu",
+  "bsc",
+  "bitcoincore",
+  "bchd",
+  "bitcoincashnode",
   "bor",
+  "celestia",
   "celo",
-  "flow",
+  "chainlink",
   "gaia",
+  "cronos",
+  "dashd",
+  "dogecoincore",
+  "eos",
+  "erigon",
+  "coregeth",
+  "goopera",
+  "fireeth",
+  "flow",
+  "forest",
   "geth",
+  "goflare",
+  "gosongbird",
   "harmony",
+  "hedera",
   "heimdall",
   "horizon",
+  "icp",
+  "injectived",
   "jito",
   "kava",
+  "kusama",
   "lighthouse",
+  "lighthouse_vc",
+  "lighthouse_bc",
+  "litecoincore",
   "lodestar",
+  "lotus",
   "mina",
-  "near",
   "nethermind",
+  "nearcore",
   "nimbus",
-  "nitro",
+  "op",
   "optimism",
   "polkadot",
-  "polygon",
+  "prysm",
+  "reth",
+  "rippled",
   "rocketpool",
   "sei",
   "solana",
   "stacks",
-  "sui",
+  "stellarcore",
   "teku",
-  "thor")
-</ParamField>
-<ParamField query="release_date" type="integer" optional>
-  Release date of the update (unix epoch timestamp)
-</ParamField>
-<ParamField query="release_notes_url" type="string" optional>
-  Link to GitHub repository release notes
+  "tezos",
+  "javatron",
+  "ton",
+  "testclient",
+  "thor",
+  "zcashd")
 </ParamField>
 <ParamField query="version" type="string" optional>
   Version of the node update
 </ParamField>
-<ParamField query="commit_hash" type="string" optional>
-  Commit hash of the node update
-</ParamField>
 <ParamField query="priority" type="string" optional>
-  Priority level of the node update
-</ParamField>
-<ParamField query="prerequisites" type="array" optional>
-  Array of prerequisites for the node update
+  Priority/Severity level of the node update
 </ParamField>
 <ParamField query="breaking_changes" type="boolean" optional>
   Boolean indicating if the update has breaking changes
-</ParamField>
-<ParamField query="breaking_change_summary" type="string" optional>
-  Summary of the breaking changes
-</ParamField>
-<ParamField query="upcoming_network_upgrade" type="string" optional>
-  Information about any upcoming network upgrades
 </ParamField>
 <ParamField query="required_for_upcoming_upgrade" type="boolean" optional>
   Boolean indicating if the update is required for an upcoming network upgrade
@@ -245,6 +235,16 @@ The complete list of query parameters supported by the 'GET Node Updates' endpoi
 </ResponseField>
     
 </Accordion>
+<RequestExample>
+
+```bash Request
+  curl --request GET \
+  --url https://web-backend.scale3production.com/node_updates \
+  --header 'x-api-key: <api-key>' \
+  --header 'x-user-agent: s3l-web-client'
+```
+
+</RequestExample>
 <ResponseExample>
 
 ```json Sample 200 (OK) Response
