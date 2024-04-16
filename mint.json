@@ -1,13 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Scale3Labs",
-  "api": {
-    "baseUrl": "https://web-backend.scale3production.com",
-    "auth": {
-      "method": "key",
-      "name": "x-api-key"
-    }
-  },
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"

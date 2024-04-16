@@ -1,7 +1,6 @@
 ---
 title: "Blockchain Intelligence APIs: GET Network Feed"
 description: "This endpoint allows you to query our network intelligence feed for a specific chain,  network (mainnet/testnet) and get the latest announcements from Discord for that specific chain. Find the list of supported chains in the chain parameter below. You will need your API key to send requests. If you have any questions or feedback, please reach out to us at support@scale3labs.com."
-api: "GET /feed"
 
 ---
 
@@ -22,41 +21,15 @@ Get the second page of feeds for the 'mainnet' network, showing 5 records per pa
     GET /network-feed?network=mainnet&page=2&page_size=5
 
 A complete list of supported parameters for the 'GET Network Feed' endpoint is provided below.
-  <ParamField query="labels" type="string[]" optional>
-    Type of feed. This can contain (announcement, general information, time
-    sensitive, software upgrade, problem and needs action)
+  <ParamField query="labels" type="string" optional>
+    Type of feed. This can be one of: "announcement", "general information", "time sensitive", "software upgrade", "problem" and "needs action"
   </ParamField>
   <ParamField query="chain" type="string" required>
-    Network feed chain. Currently supported chains values are (  "aptos",
-  "arb",
-  "atom",
-  "avax",
-  "base",
-  "celo",
-  "dot",
-  "eth",
-  "flow",
-  "harmony",
-  "kava",
-  "mina",
-  "near",
-  "op",
-  "polygon",
-  "sei",
-  "sol",
-  "stx",
-  "sui",
-  "vet",
-  "xlm")
-  </ParamField>
-  <ParamField query="event" type="string" optional>
-    Title of the network feed event
-  </ParamField>
-  <ParamField query="description" type="string" optional>
-    Description of the network feed event
+    Network feed chain. Currently supported chains values are ("aptos",
+  "algo", "aptos", "arb", "avax", "base", "bnb", "link", "btc", "bch", "ada", "tia", "celo", "atom", "cro", "dash", "doge", "eos", "eth", "etc", "ftm", "fil", "flr", "flow", "harmony", "hbar", "hnt", "icp", "inj", "kava", "ksm", "ltc", "mina", "near", "op", "dot", "polygon", "xrp", "sei", "sol", "stx", "xlm", "sui", "xtz", "trx", "ton", "vet", "zec")
   </ParamField>
   <ParamField query="network" type="string" optional>
-    Network feed network (mainnet, testnet, devnet)
+    mainnet, testnet or devnet
   </ParamField>
   <ParamField query="clients" type="string[]" optional>
     Array of clients this feed corresponds to depending on the chain. Currently supported clients include: (
@@ -102,7 +75,7 @@ A complete list of supported parameters for the 'GET Network Feed' endpoint is p
 
 
 <Accordion title="200 (OK) Response Object Schema">
-    <ResponseField name="result" type="Feed[]">
+    <ResponseField name="result" type="announcements[]">
        <Expandable title="Network Feed Object Properties" defaultOpen="true">
      <ResponseField name="labels" type="string[]" required>
         Type of feed. This can contain (announcement, general information, time sensitive, software upgrade, problem and needs action)
@@ -117,7 +90,7 @@ A complete list of supported parameters for the 'GET Network Feed' endpoint is p
             Description of the network feed event
         </ResponseField>
         <ResponseField name="network" type="string" required>
-        Network feed network (mainnet, testnet, devnet)
+        Network (mainnet, testnet, devnet)
         </ResponseField>
         <ResponseField name="clients" type="string[]" required>
             Array of clients this feed corresponds to depending on the chain. 
@@ -157,6 +130,17 @@ A complete list of supported parameters for the 'GET Network Feed' endpoint is p
 </ResponseField>
     
 </Accordion>
+
+<RequestExample>
+
+```bash Request
+  curl --request GET \
+  --url https://web-backend.scale3production.com/feed \
+  --header 'x-api-key: <api-key>' \
+  --header 'x-user-agent: s3l-web-client'
+```
+
+</RequestExample>
 <ResponseExample>
 
 ```json Sample 200 (OK) Response
