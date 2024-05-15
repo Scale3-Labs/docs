@@ -86,20 +86,18 @@ Based on the official [documentation](https://wiki.polygon.technology/docs/pos/v
 
 ### Base
 
-According to the official [documentation](https://docs.base.org/guides/run-a-base-node#hardware-requirements) for a Base full node its recommended to have an SSD of 1TB but
-we recommend to have atleast 4TB SSD for downloading and restoring snapshots. As per writing this doc each mainnet snapshot takes around 1.5TB of space. So here are our recommendations:
+According to the official [documentation](https://docs.base.org/guides/run-a-base-node#hardware-requirements) for a Base full node its recommended to have an SSD of 4TB but
+we recommend to have atleast 9TB SSD for downloading and restoring snapshots. As per writing this doc each mainnet snapshot takes around 3.5TB of space. So here are our recommendations:
 
 - CPU: 4 cores or 8 vCPUs
 - Memory: 16 GB
-- Disk: 4 TB SSD
+- Disk: 9 TB SSD
 
-|   Provider   |  Server Type  | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) |                                        Monthly Cost ($)                                         |
-| :----------: | :-----------: | :-------------: | :-------: | :----------: | :----------: | :---------------------------------------------------------------------------------------------: |
-|     AWS      |  c6a.2xlarge  |     227.38      |   4000    |     GP3      |    320.00    |     [547.38](https://calculator.aws/#/estimate?id=6afab4be83ab287f2c6959b75ce5385152cd1470)     |
-|     GCP      | c3d-highcpu-8 |     224.39      |   4000    | Balanced SSD |    440.00    | [664.39](https://cloud.google.com/products/calculator/#id=4f7743e9-50e1-429e-a8e8-8ca6845a43b5) |
-|    Azure     |    F8s v2     |     246.74      |   4096    | Standard SSD |    307.40    |                 [554.14](https://azure.com/e/9de1140735a849349aea66ba899dff35)                  |
-| DigitalOcean |      c-8      |     168.00      |   4000    |   Default    |    400.00    |                                             568.00                                              |
-|   Latitude   | c3.medium.x86 |     367.00      |  1900 x2  |     NVMe     |   included   |                                             388.00                                              |
+| Provider |  Server Type  | Server Cost ($) | Disk (GB) |  Disk Type   | Disk Cost($) |                                         Monthly Cost ($)                                         |
+| :------: | :-----------: | :-------------: | :-------: | :----------: | :----------: | :----------------------------------------------------------------------------------------------: |
+|   AWS    |  c6a.2xlarge  |     227.38      |   9000    |     GP3      |    720.00    |     [947.38](https://calculator.aws/#/estimate?id=0d0c1ad75f447bfc55e50d48b4b4a573e8898067)      |
+|   GCP    | c3d-highcpu-8 |     224.39      |   9000    | Balanced SSD |    990.00    | [1214.39](https://cloud.google.com/products/calculator/#id=22a82c1d-57f3-44a0-ab1e-f70b0b47c5a6) |
+|  Azure   |    F8s v2     |     246.74      |   8192    | Standard SSD |    614.40    |                  [861.34](https://azure.com/e/a2292c0a9dc84a9e8e2b54626b2b158b)                  |
 
 ### Solana
 
