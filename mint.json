@@ -113,7 +113,8 @@
           "group": "Supported Chains",
           "pages": [
             "nodepilot/supported-chains/nodepilot-flow",
-            "nodepilot/supported-chains/ethereum-validator"
+            "nodepilot/supported-chains/ethereum-validator",
+            "nodepilot/supported-chains/nodepilot-base"
           ]
         },
         "nodepilot/nodepilot-cost-estimation",

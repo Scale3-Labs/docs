@@ -1,0 +1,60 @@
+---
+title: Nodepilot Base Instructions
+sidebarTitle: Base Instructions
+description: Important note for Base node operators
+---
+
+Base node operators require some manual steps to be performed after their node is up.
+
+## Update the L1 URL
+
+With all the recent changes going with base, to run a base node now, you need to also run an ethereum node. This ethereum node should be fully synced and the CL and EL endpoints should be accessible to the base node.
+
+Peform the following steps once your base node is up and has extracted the snapshot. To check whether snapshot is extracted, you can check the section below.
+
+1. SSH to your base node --> become the base user by running `sudo su - base` --> cd into `/home/base/node` directory.
+2. Modify the `.env` file in this directory by using your choice of editor. For example, `nano .env`.
+   - You can keep `OP_NODE_L1_ETH_RPC` as it is or change it to your own ethereum node Geth RPC endpoint like `http://<eth-node-ip>:8545`.
+   - Change the value of `OP_NODE_L1_BEACON` to `http://<eth-node-ip>:5052`.
+3. Save the file and exit the editor. run `docker compose up -d` to restart the base node.
+4. check the logs of docker container.
+   ```bash
+   docker logs -f node-geth-1
+   docker logs -f node-node-1
+   ```
+
+## Check if snapshot is extracted
+
+After you see node in "Ready" state on Scale3 platform, you can whitelist your IP and ssh the node.
+Run the following command to check if the snapshot script is running:
+
+```bash
+ps axuf | grep download_snapshot
+```
+
+If you see the process running, it means the snapshot is being extracted. To check logs of the snapshot script, run:
+
+```bash
+cat /tmp/setup_clients.log
+```
+
+They are not much useful, but good to have.
+
+To check the disk unilization by snapshot, run `df -h | grep /data`.
+
+If you wish to manually restore snapshot, you can find the snapshot script in directory `/home/base/scripts`.
+Eg: command to run the script is
+
+```bash
+/home/base/scripts/download_snapshot.sh \
+	--network mainnet \
+	--geth_extract_dir /data/base/geth \
+	--node_extract_dir /data/base/node \
+	--staging_extract_dir /data/base/staging \
+	--download_dir /data/base/staging \
+	--log_file /tmp/setup_clients.log
+```
+
+---
+
+If you have more queries, please reachout to us on live chat or on Discord.
